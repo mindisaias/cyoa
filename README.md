@@ -16,11 +16,23 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- > * What will be the input/output of your project?
- > * What are the features that the project provides?
+ > Make Your Own Adventure is a program that allows users to create a text choice-based interactive story (just like the classic Choose Your Own Adventure genre of books and games). There are two types of people that would use this program. The creators, the ones who make the stories, and the users/players, the ones who play and go through these stories made by the creators. This project is important to us because we belive in allowing people to make use of their creativity to bring their ideas and stories to fruition. We intend to implement this program using C++.
+> 
+ > There are two possible inputs for this program, one from the creator, and one from the player. The creator will input the info they want to include their game, this includes things such as dialogue and text, the possible choices they want the user to make, and the pool of items we provide to include in their story. The input from the player is the path they decide to take for any given story.
+> 
+ > Given two possible inputs, we also have two possible outputs for the program. For the creator, upon completion of the story they make, they will get a text file which our program can use to run the story. For the player, the output will also be a text file which goes over their entire path of the story.
+> 
+ > Our program will include features such as the following:
+ >  * Choosing between options given a prompt
+ >  * Randomly decided choices without user input
+ >  * Items to allow/prevent user from making a choice
+ >  * User inventory
+ >  * Base set of items to include in a story 
+ >  * Save work in progress game (For creators)
+ >  * Save a game in progress (For users)
+ >  * Undo Action (For users)
+ >  * Printed overview of story upon completion
+ >
  > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > 
  > You also need to set up an empty project board using GitHub projects (board view with default columns). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added. All columns should be in the right order.
