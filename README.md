@@ -22,13 +22,24 @@
 ### Navigation Diagram
 > <img width="584" alt="image" src="https://github.com/user-attachments/assets/41fec473-e33d-4b86-a791-051161e73727">
 
+> Our navigation diagram shows all possible paths/routes the user can take through the program.
+
 ### Screen Layouts
 <img width="682" alt="image" src="https://github.com/user-attachments/assets/d752b103-c3ff-44cf-8182-a16cb348c12d">
 
-> Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs and expected output, or any graphical user interface components if applicable (e.g. buttons, text boxes, etc). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
+> Create Account: This allows the user to either sign in or create an account which allows them to access our game creation feature and game play feature.
+> Run Program: This layout shows the very first display the user will get upon opening the program.
+> Sign-In: This layout allows the user to sign into an already made account with a welcome message, and outputs an error message upon an invalid account being inputted.
+> Edit Scene: This is the display that the user sees when they go to edit any scene for a game being made.
+> Main Menu: Upon signing in, the user will see this display to decide what they want to do.
+> Select a Game: Upon deciding play a game in the main menu, the user will get a display of games they can choose from to play.
+> Scene Title: This is the display that the user will see when they are playing a story and they get to choose any of the provided choices.
+ 
 
 ## Class Diagram
 <img width="571" alt="image" src="https://github.com/user-attachments/assets/a88dc5c8-359e-4ff8-83db-297ac3deddee">
+
+> This diagram illustrates the seven classes we will be using to implement our project. The program class will hold the objects of all the other classes and runs our entire program through the run function, everything happens inside of here. The user class exists for the user to sign in and access the rest of our program, such as game play and game creation. Playing a game is done through the GameRunner class, and game creation is done through the GameCreator class. For our game class, it has basic identifying features and the core element of the game class is the vector of scenes. Each scene is essentially a page of the story which can be accessed through the choices class. The identifying features of the game, the users, and the scenes are all stored in a database and are crossreferenced with a unique id.
 
  
  > ## Phase III
