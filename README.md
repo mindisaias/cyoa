@@ -1,16 +1,5 @@
 # Make Your Own Adventure
- > Your author list below should include links to all members GitHub (remove existing author).
- 
  > Authors: Angel Franco(https://github.com/ImmortalWave), Alex Totah(https://github.com/nander100), Isaias Villanueva(https://github.com/mindisaias), Lynvy Chang(https://github.com/noodlespad)
-
- > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
-
- > ## Expectations
- > * The backend of your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * **Each member of the group must actively participate in the Github Project board, writing unit tests, and reviewing commited code.**
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
 
 ## Project Description
  > Make Your Own Adventure is a program that allows users to create a text choice-based interactive story (just like the classic Choose Your Own Adventure genre of books and games). There are two types of people that would use this program. The creators, the ones who make the stories, and the users/players, the ones who play and go through these stories made by the creators. This project is important to us because we belive in allowing people to make use of their creativity to bring their ideas and stories to fruition. We intend to implement this program using C++.
