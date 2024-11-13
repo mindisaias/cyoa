@@ -1,0 +1,10 @@
+CMakeCache.txt
+CMakefiles/
+Makefile
+cmake_install.cmake 
+cyoaDB
+sqlite3/CMakeFiles/
+src/CMakeFiles
+CMakeFiles/
+bin/
+lib/
