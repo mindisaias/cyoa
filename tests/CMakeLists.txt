@@ -4,11 +4,60 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
 
 add_subdirectory(googletest)
 
-add_executable(runDBTests
-    DBtest.cpp
+add_executable(runChoiceTests
+    ChoiceTest.cpp
 )
 
+add_executable(runDBTests
+    DBTest.cpp
+)
+
+add_executable(runGameTests
+    GameTest.cpp
+)
+
+add_executable(runGameCreatorTests
+    GameCreatorTest.cpp
+)
+
+add_executable(runGameRunnerTests
+    GameRunnerTest.cpp
+)
+
+add_executable(runProgramTests
+    ProgramTest.cpp
+)
+
+add_executable(runSceneTests
+    SceneTest.cpp
+)
+
+add_executable(runUserTests
+    UserTest.cpp
+)
+
+target_link_libraries(runChoiceTests gmock gtest gtest_main)
+target_link_libraries(runChoiceTests simpleLibrary databaseLibrary) 
 
 target_link_libraries(runDBTests gmock gtest gtest_main)
 target_link_libraries(runDBTests simpleLibrary databaseLibrary) 
+
+target_link_libraries(runGameTests gmock gtest gtest_main)
+target_link_libraries(runGameTests simpleLibrary databaseLibrary) 
+
+target_link_libraries(runGameCreatorTests gmock gtest gtest_main)
+target_link_libraries(runGameCreatorTests simpleLibrary databaseLibrary) 
+
+target_link_libraries(runGameRunnerTests gmock gtest gtest_main)
+target_link_libraries(runGameRunnerTests simpleLibrary databaseLibrary) 
+
+target_link_libraries(runProgramTests gmock gtest gtest_main)
+target_link_libraries(runProgramTests simpleLibrary databaseLibrary) 
+
+target_link_libraries(runSceneTests gmock gtest gtest_main)
+target_link_libraries(runSceneTests simpleLibrary databaseLibrary) 
+
+target_link_libraries(runUserTests gmock gtest gtest_main)
+target_link_libraries(runUserTests simpleLibrary databaseLibrary) 
+
 
