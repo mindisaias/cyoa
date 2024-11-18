@@ -9,9 +9,11 @@ add_library(simpleLibrary
     User.cpp 
 )
 
-add_executable(Program 
+add_executable(${CMAKE_PROJECT_NAME} 
     main.cpp
 )
 
 find_library(M_LIB m)
 target_link_libraries(simpleLibrary ${M_LIB})
+
+target_link_libraries(${CMAKE_PROJECT_NAME} simpleLibrary)
