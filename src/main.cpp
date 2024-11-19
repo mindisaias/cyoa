@@ -1,7 +1,7 @@
-#include "../include/Program.hpp"
+#include "../include/GameManager.hpp"
 
 int main() {
-    // Program myProgram;
+    // GameManager myProgram;
     // myProgram.run(); 
     return 0;
 }
