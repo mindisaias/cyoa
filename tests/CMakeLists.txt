@@ -24,8 +24,8 @@ add_executable(runGameRunnerTests
     GameRunnerTest.cpp
 )
 
-add_executable(runProgramTests
-    ProgramTest.cpp
+add_executable(runGameManagerTests
+    GameManagerTest.cpp
 )
 
 add_executable(runSceneTests
@@ -51,8 +51,8 @@ target_link_libraries(runGameCreatorTests simpleLibrary databaseLibrary)
 target_link_libraries(runGameRunnerTests gmock gtest gtest_main)
 target_link_libraries(runGameRunnerTests simpleLibrary databaseLibrary) 
 
-target_link_libraries(runProgramTests gmock gtest gtest_main)
-target_link_libraries(runProgramTests simpleLibrary databaseLibrary) 
+target_link_libraries(runGameManagerTests gmock gtest gtest_main)
+target_link_libraries(runGameManagerTests simpleLibrary databaseLibrary) 
 
 target_link_libraries(runSceneTests gmock gtest gtest_main)
 target_link_libraries(runSceneTests simpleLibrary databaseLibrary) 
