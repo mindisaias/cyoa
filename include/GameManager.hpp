@@ -6,7 +6,7 @@
 #include "GameRunner.hpp"
 #include "GameCreator.hpp"
 #include "User.hpp"
-
+#include <map>
 
 class GameManager {
     private:
@@ -15,6 +15,10 @@ class GameManager {
         User currUser;
         GameCreator GC;
         GameRunner GR;
+        map<string, Scene> screnes; 
+
+        // HELPER FUNCTIONS
+        void loadScrenes(); // loads all of the default screnes         
     public:
         void run();
 };
