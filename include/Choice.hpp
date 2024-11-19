@@ -6,10 +6,10 @@ using namespace std;
 
 class Choice {
     public:
-        Choice(): text(""), resultScene(-1){}
-        Choice(string t, int i): text(t), resultScene(i) {}
+        Choice(): text(""), resultScene("") {}
+        Choice(string t, string s): text(t), resultScene(s) {}
         string text; 
-        int resultScene;
+        string resultScene;
 };
 
 #endif
