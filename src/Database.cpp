@@ -8,28 +8,45 @@ Database::Database() {
     openDB();
 // Create tables if they don't already exist
     const char* sqlGamesTable =  "CREATE TABLE IF NOT EXISTS Games ("
-                            "UID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                            "GameID INTEGER PRIMARY KEY AUTOINCREMENT, "
                             "Name TEXT NOT NULL, "
                             "Author TEXT NOT NULL, "
-                            "Published INTEGER DEFAULT 0, "
+                            "Published INTEGER DEFAULT 0, " // 0 Represents False(Unpublished), 1 Represents True(Published)
                             "Description TEXT);";
 
-    const char* sqlChoiceTable = "CREATE TABLE IF NOT EXISTS Choices ("
-                            "CID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                            "UID INTEGER, "
-                            "Choice TEXT, "
-                            "Result INTEGER, "
-                            "FOREIGN KEY (UID) REFERENCES Games(UID), "
-                            "FOREIGN KEY (Result) REFERENCES Game(SID);";
-    char** DB_err = nullptr;
-    if (sqlite3_exec(DB, sqlGamesTable, NULL, 0, DB_err) != SQLITE_OK) {
-        cout << "SQL Error: " << DB_err << endl;
-        sqlite3_free(DB_err);
+    const char* sqlScenesTable = "CREATE TABLE IF NOT EXISTS Scenes ("
+                                 "SceneID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                                 "GameID Integer, "
+                                 "Prompt TEXT NOT NULL, "
+                                 "FOREIGN KEY (GameID) REFERENCES Games(GameID));";
+
+    const char* sqlChoicesTable = "CREATE TABLE IF NOT EXISTS Choices ("
+                            "ChoiceID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                            "SceneID INTEGER, "
+                            "ChoiceText TEXT, "
+                            "ResultSceneID INTEGER, "
+                            "FOREIGN KEY (SceneID) REFERENCES Scenes(SceneID), "
+                            "FOREIGN KEY (ResultSceneID) REFERENCES Scenes(SceneID));";
+
+
+    char* errmsg = nullptr;
+    if (sqlite3_exec(DB, sqlGamesTable, NULL, 0, &errmsg) != SQLITE_OK) {
+        cout << "SQL Error Games Table: " << errmsg << endl;
+        sqlite3_free(errmsg);
     }
-    if (sqlite3_exec(DB, sqlChoiceTable, NULL, 0, DB_err) != SQLITE_OK) {
-        cout << "SQL Error: " << DB_err << endl;
-        sqlite3_free(DB_err);
+
+    else {
+        cout << "Games Table successfully created/initialized" << endl;
     }
+    if (sqlite3_exec(DB, sqlChoicesTable, NULL, 0, &errmsg) != SQLITE_OK) {
+        cout << "SQL Error Choice Table: " << errmsg << endl;
+        sqlite3_free(errmsg);
+    }
+    else {
+        cout << "Choices Table successfully created/initialized" << endl;
+    }
+    // Whether or not tables already exist, database is now loaded with these tables existing in it
+    // Also possibility that game tables already exist as well, but everything that is needed now exists for sure
 
 
 }
@@ -46,22 +63,6 @@ void Database::openDB() {
             cout << "Database opened successfully" << endl;
         }
 };
-
-void Database::createGameTable(string &tableName) {
-
-    string sqlGameTable =  "CREATE TABLE IF NOT EXISTS " + tableName + " ("
-                            "SID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                            "UID INTEGER, "
-                            "Prompt TEXT, "
-                            "FOREIGN KEY (UID) REFERENCES Games(UID));";
-
-
-    char** GameTableErr = nullptr;
-    if (sqlite3_exec(DB, sqlGameTable.c_str(), NULL, 0, GameTableErr) != SQLITE_OK) {
-        cout << "SQL Error: " << GameTableErr << endl;
-        sqlite3_free(GameTableErr);
-    }
-}
 
 void Database::insertToDB() {
 

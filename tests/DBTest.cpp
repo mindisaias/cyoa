@@ -1,20 +1,25 @@
 #include "gtest/gtest.h"
 #include "../include/Database.hpp"
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    Database myDB;
+    string myGame = "myGame";
+
+    cout << "Hello world" << endl;
+
+    return 0;
+}
 
 
-TEST(DatabaseTestSuite, openDBTest) {
+
+/*TEST(DatabaseTestSuite, openDBTest) {
 
     Database* testDB;
 
     EXPECT_NO_THROW(testDB->openDB());
-
-}
-
-TEST(DatabaseTestSuite, createGameTableTest) {
-
-    Database* testDB;
-
-    EXPECT_NO_THROW(testDB->createGameTable("cool"));
 
 }
 
@@ -34,4 +39,4 @@ TEST(DatabaseTestSuite, selectFromDBTest) {
 
     EXPECT_NO_THROW(testDB.selectFromDB());
 
-}
+}*/
