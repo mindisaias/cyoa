@@ -9,7 +9,8 @@ int main() {
     string myGame = "myGame";
 
     cout << "Hello world" << endl;
-
+    myDB.insertToGames("Willow's Game", "Willow", "This is Willow's Game");
+    myDB.insertToScenes(3, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
     return 0;
 }
 
@@ -17,9 +18,9 @@ int main() {
 
 /*TEST(DatabaseTestSuite, openDBTest) {
 
-    Database* testDB;
+    Database testDB;
 
-    EXPECT_NO_THROW(testDB->openDB());
+    EXPECT_NO_THROW(testDB.openDB());
 
 }
 

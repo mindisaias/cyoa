@@ -12,11 +12,12 @@ Database::Database() {
                             "Name TEXT NOT NULL, "
                             "Author TEXT NOT NULL, "
                             "Published INTEGER DEFAULT 0, " // 0 Represents False(Unpublished), 1 Represents True(Published)
-                            "Description TEXT);";
+                            "Description TEXT NOT NULL);";
 
     const char* sqlScenesTable = "CREATE TABLE IF NOT EXISTS Scenes ("
                                  "SceneID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                                 "GameID Integer, "
+                                 "SceneName TEXT, "
+                                 "GameID INTEGER, "
                                  "Prompt TEXT NOT NULL, "
                                  "FOREIGN KEY (GameID) REFERENCES Games(GameID));";
 
@@ -28,7 +29,11 @@ Database::Database() {
                             "FOREIGN KEY (SceneID) REFERENCES Scenes(SceneID), "
                             "FOREIGN KEY (ResultSceneID) REFERENCES Scenes(SceneID));";
 
-
+    const char* sqlUsersTable = "CREATE TABLE IF NOT EXISTS Users ("
+                                "UserID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                                "Username TEXT NOT NULL, "
+                                "Password TEXT NOT NULL);";
+// Output error if table creation/initialization phase fails
     char* errmsg = nullptr;
     if (sqlite3_exec(DB, sqlGamesTable, NULL, 0, &errmsg) != SQLITE_OK) {
         cout << "SQL Error Games Table: " << errmsg << endl;
@@ -45,9 +50,22 @@ Database::Database() {
     else {
         cout << "Choices Table successfully created/initialized" << endl;
     }
-    // Whether or not tables already exist, database is now loaded with these tables existing in it
-    // Also possibility that game tables already exist as well, but everything that is needed now exists for sure
 
+    if (sqlite3_exec(DB, sqlScenesTable, NULL, 0, &errmsg) != SQLITE_OK) {
+        cout << "SQL Error Scenes Table: " << errmsg << endl;
+        sqlite3_free(errmsg);
+    }
+    else {
+        cout << "Scenes Table successfully created/initialized" << endl;
+    }
+    // Whether or not tables already exist, database is now loaded with these tables existing in it
+    if (sqlite3_exec(DB, sqlUsersTable, NULL, 0, &errmsg) != SQLITE_OK) {
+        cout << "SQL Error Choice Table: " << errmsg << endl;
+        sqlite3_free(errmsg);
+    }
+    else {
+        cout << "Users Table successfully created/initialized" << endl;
+    }
 
 }
 
@@ -64,7 +82,74 @@ void Database::openDB() {
         }
 };
 
-void Database::insertToDB() {
+void Database::insertToGames(string name, string author, string description) {
+
+    // "GameID INTEGER PRIMARY KEY AUTOINCREMENT, "
+    // "Name TEXT NOT NULL, "
+    // "Author TEXT NOT NULL, "
+    // "Published INTEGER DEFAULT 0, " // 0 Represents False(Unpublished), 1 Represents True(Published)
+    // "Description TEXT NOT NULL);";
+    string query = "INSERT INTO Games (NAME, AUTHOR, DESCRIPTION) VALUES(?, ?, ?);";
+
+    sqlite3_stmt* stmt;
+    // Prepare the statement
+    if (sqlite3_prepare_v2(DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing statement: " << sqlite3_errmsg(DB) << endl;
+        return;
+    }
+
+    // Use bind to amend each variable to sql statement
+    sqlite3_bind_text(stmt, 1, name.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, author.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 3, description.c_str(), -1, SQLITE_STATIC);
+
+    // Execute the statement using step
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        cerr << "Error inserting data: " << sqlite3_errmsg(DB) << endl;
+    } 
+    else {
+        cout << "Successfully inserted game into Games table." << endl;
+    }
+
+    // Finalize statement created dynamically to free memory and prevent mem leaks
+    sqlite3_finalize(stmt);
+
+
+}
+
+void Database::insertToScenes(int GameID, string prompt, string SceneName) {
+
+    // "CREATE TABLE IF NOT EXISTS Scenes ("
+    // "SceneID INTEGER PRIMARY KEY AUTOINCREMENT, "
+    // "SceneName TEXT"
+    // "GameID INTEGER, "
+    // "Prompt TEXT NOT NULL, "
+    // "FOREIGN KEY (GameID) REFERENCES Games(GameID));";
+    string query = "INSERT INTO Scenes (SceneName, GameID, Prompt) VALUES(?, ?, ?);";
+
+    sqlite3_stmt* stmt;
+    // Prepare the statement
+    if (sqlite3_prepare_v2(DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing statement: " << sqlite3_errmsg(DB) << endl;
+        return;
+    }
+
+    // Use bind to amend each variable to sql statement
+    sqlite3_bind_text(stmt, 1, SceneName.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_int(stmt, 2, GameID);
+    sqlite3_bind_text(stmt, 3, prompt.c_str(), -1, SQLITE_STATIC);
+
+    // Execute the statement using step
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        cerr << "Error inserting data: " << sqlite3_errmsg(DB) << endl;
+    } 
+    else {
+        cout << "Successfully inserted scene into Scenes table." << endl;
+    }
+
+    // Finalize statement created dynamically to free memory and prevent mem leaks
+    sqlite3_finalize(stmt);
+
 
 }
 void Database::deleteFromDB() {

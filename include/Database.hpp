@@ -11,7 +11,8 @@ class Database {
         Database();
         sqlite3* DB;
         void openDB();
-        void insertToDB();
+        void insertToGames(string name, string author, string description);
+        void insertToScenes(int GameID, string prompt, string SceneName);
         void deleteFromDB();
         void selectFromDB();
         ~Database();
