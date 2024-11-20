@@ -8,7 +8,15 @@ using namespace std;
 
 class Database {
     public:
+        sqlite3* DB;
+        void openDB();
+        void createGameTable(string &tableName);
+        void insertToDB();
+        void deleteFromDB();
+        void selectFromDB();
+        ~Database();
 
+        
 };
 
 #endif
