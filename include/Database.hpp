@@ -11,12 +11,29 @@ class Database {
         Database();
         sqlite3* DB;
         void openDB();
+
+
         void insertToGames(string name, string author, string description);
         void insertToScenes(int GameID, string prompt, string SceneName);
         void insertToUsers(string username, string password);
         void insertToChoices(int SceneID, string ChoiceText, int ResultSceneID);
-        void deleteFromDB();
-        void selectFromDB();
+
+
+        void deleteFromGames();
+        void deleteFromScenes();
+        void deleteFromChoices();
+
+
+        void selectFromGames();
+        void selectFromScenes();
+        void selectFromChoices();
+        void selectFromUsers();
+
+        void updateInGames();
+        void updateInScenes();
+        void updateInChoices();
+
+
         ~Database();
 
         

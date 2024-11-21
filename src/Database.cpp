@@ -14,12 +14,14 @@ Database::Database() {
                             "Published INTEGER DEFAULT 0, " // 0 Represents False(Unpublished), 1 Represents True(Published)
                             "Description TEXT NOT NULL);";
 
+
     const char* sqlScenesTable = "CREATE TABLE IF NOT EXISTS Scenes ("
                                  "SceneID INTEGER PRIMARY KEY AUTOINCREMENT, "
                                  "SceneName TEXT, "
                                  "GameID INTEGER, "
                                  "Prompt TEXT NOT NULL, "
                                  "FOREIGN KEY (GameID) REFERENCES Games(GameID));";
+
 
     const char* sqlChoicesTable = "CREATE TABLE IF NOT EXISTS Choices ("
                             "ChoiceID INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -29,10 +31,13 @@ Database::Database() {
                             "FOREIGN KEY (SceneID) REFERENCES Scenes(SceneID), "
                             "FOREIGN KEY (ResultSceneID) REFERENCES Scenes(SceneID));";
 
+
     const char* sqlUsersTable = "CREATE TABLE IF NOT EXISTS Users ("
                                 "UserID INTEGER PRIMARY KEY AUTOINCREMENT, "
                                 "Username TEXT NOT NULL, "
                                 "Password TEXT NOT NULL);";
+
+
 // Output error if table creation/initialization phase fails
     char* errmsg = nullptr;
     if (sqlite3_exec(DB, sqlGamesTable, NULL, 0, &errmsg) != SQLITE_OK) {
@@ -43,6 +48,8 @@ Database::Database() {
     else {
         cout << "Games Table successfully created/initialized" << endl;
     }
+
+
     if (sqlite3_exec(DB, sqlChoicesTable, NULL, 0, &errmsg) != SQLITE_OK) {
         cout << "SQL Error Choice Table: " << errmsg << endl;
         sqlite3_free(errmsg);
@@ -51,6 +58,7 @@ Database::Database() {
         cout << "Choices Table successfully created/initialized" << endl;
     }
 
+
     if (sqlite3_exec(DB, sqlScenesTable, NULL, 0, &errmsg) != SQLITE_OK) {
         cout << "SQL Error Scenes Table: " << errmsg << endl;
         sqlite3_free(errmsg);
@@ -58,7 +66,8 @@ Database::Database() {
     else {
         cout << "Scenes Table successfully created/initialized" << endl;
     }
-    // Whether or not tables already exist, database is now loaded with these tables existing in it
+
+
     if (sqlite3_exec(DB, sqlUsersTable, NULL, 0, &errmsg) != SQLITE_OK) {
         cout << "SQL Error Choice Table: " << errmsg << endl;
         sqlite3_free(errmsg);
@@ -66,6 +75,7 @@ Database::Database() {
     else {
         cout << "Users Table successfully created/initialized" << endl;
     }
+    // Whether or not tables already exist, database is now loaded with these tables existing in it
 
 }
 
@@ -220,12 +230,47 @@ void Database::insertToChoices(int SceneID, string ChoiceText, int ResultSceneID
 
 
 }
-void Database::deleteFromDB() {
+
+void Database::deleteFromGames() {
 
 }
-void Database::selectFromDB() {
+
+void Database::deleteFromScenes() {
 
 }
+
+void Database::deleteFromChoices() {
+
+}
+
+void Database::selectFromGames() {
+
+}
+
+void Database::selectFromGames() {
+
+}
+
+void Database::selectFromScenes() {
+
+}
+
+void Database::selectFromUsers() {
+
+}
+
+void Database::updateInGames() {
+
+}
+
+void Database::updateInChoices() {
+
+}
+
+void Database::updateInScenes() {
+
+}
+
 Database::~Database() {
     if (DB) {
         sqlite3_close(DB);
