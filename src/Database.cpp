@@ -20,7 +20,7 @@ Database::Database() {
                                  "SceneName TEXT, "
                                  "GameID INTEGER, "
                                  "Prompt TEXT NOT NULL, "
-                                 "FOREIGN KEY (GameID) REFERENCES Games(GameID));";
+                                 "FOREIGN KEY (GameID) REFERENCES Games(GameID) ON DELETE CASCADE);";
 
 
     const char* sqlChoicesTable = "CREATE TABLE IF NOT EXISTS Choices ("
@@ -28,7 +28,7 @@ Database::Database() {
                             "SceneID INTEGER, "
                             "ChoiceText TEXT, "
                             "ResultSceneID INTEGER, "
-                            "FOREIGN KEY (SceneID) REFERENCES Scenes(SceneID), "
+                            "FOREIGN KEY (SceneID) REFERENCES Scenes(SceneID) ON DELETE CASCADE, "
                             "FOREIGN KEY (ResultSceneID) REFERENCES Scenes(SceneID));";
 
 
@@ -231,12 +231,29 @@ void Database::insertToChoices(int SceneID, string ChoiceText, int ResultSceneID
 
 }
 
-void Database::deleteFromGames() {
+void Database::deleteFromGames(string name) {
+    string query = "DELETE FROM GAMES WHERE NAME = '" + name + "';";
+    char* errmsg = nullptr;
 
+    if (sqlite3_exec(DB, query.c_str(), NULL, 0, &errmsg) != SQLITE_OK) {
+        cout << "Error deleting from games: " << errmsg << endl;
+    }
+    else {
+        cout << name << " successfully deleted" << endl;
+    }
+    
 }
 
-void Database::deleteFromScenes() {
+void Database::deleteFromScenes(int sceneID) {
+    string query = "DELETE FROM SCENES WHERE SCENEID = " + to_string(sceneID) + ";";
+    char* errmsg = nullptr;
 
+    if (sqlite3_exec(DB, query.c_str(), NULL, 0, &errmsg) != SQLITE_OK) {
+        cout << "Error deleting from scenes:" << errmsg << endl;
+    }
+    else {
+        cout << "Successfully deleted scene containing ID: " << sceneID << endl;
+    }
 }
 
 void Database::deleteFromChoices() {
@@ -247,7 +264,7 @@ void Database::selectFromGames() {
 
 }
 
-void Database::selectFromGames() {
+void Database::selectFromChoices() {
 
 }
 

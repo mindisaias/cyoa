@@ -19,8 +19,8 @@ class Database {
         void insertToChoices(int SceneID, string ChoiceText, int ResultSceneID);
 
 
-        void deleteFromGames();
-        void deleteFromScenes();
+        void deleteFromGames(string name);
+        void deleteFromScenes(int sceneID);
         void deleteFromChoices();
 
 
