@@ -8,13 +8,26 @@ int main() {
     Database myDB;
     string myGame = "myGame";
 
-    cout << "Hello world" << endl;
+    cout << endl;
+
     myDB.insertToGames("Willows Game", "Willow", "This is Willow's Game");
     myDB.insertToScenes(3, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
     myDB.insertToUsers("WillowThinking", "WillowsPassword");
     myDB.insertToChoices(1, "This is your choice.", 2);
-    myDB.deleteFromGames("Willows Game");
-    myDB.deleteFromScenes(1);
+
+    cout << endl;
+
+    myDB.deleteFromChoices(1); // want success
+    myDB.deleteFromScenes(1); // want success
+    myDB.deleteFromGames("Willows Game"); // want success
+
+    cout << endl;
+
+    myDB.deleteFromChoices(1); // want fail
+    myDB.deleteFromScenes(1); // want fail
+    myDB.deleteFromGames("Willows Game"); // want fail
+    
+    cout << endl;
 
     return 0;
 }

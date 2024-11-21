@@ -238,26 +238,53 @@ void Database::deleteFromGames(string name) {
     if (sqlite3_exec(DB, query.c_str(), NULL, 0, &errmsg) != SQLITE_OK) {
         cout << "Error deleting from games: " << errmsg << endl;
     }
+    
+    int affected_rows = sqlite3_changes(DB);
+
+    if (affected_rows == 0) {
+        cout << "'" << name << "' doesn't exist" << endl;
+    }
     else {
-        cout << name << " successfully deleted" << endl;
+        cout << "'" <<  name << "' successfully deleted" << endl;
     }
     
 }
 
 void Database::deleteFromScenes(int sceneID) {
-    string query = "DELETE FROM SCENES WHERE SCENEID = " + to_string(sceneID) + ";";
-    char* errmsg = nullptr;
+    string query = "DELETE FROM Scenes WHERE SceneID = " + to_string(sceneID) + ";";
 
+    char* errmsg = nullptr;
+    
     if (sqlite3_exec(DB, query.c_str(), NULL, 0, &errmsg) != SQLITE_OK) {
-        cout << "Error deleting from scenes:" << errmsg << endl;
+        cout << "Error deleting from scenes :" << errmsg << endl;
+    }
+
+    int affected_rows = sqlite3_changes(DB);
+
+    if (affected_rows == 0) {
+        cout << "SceneID " << sceneID << " doesn't exist" << endl;
     }
     else {
-        cout << "Successfully deleted scene containing ID: " << sceneID << endl;
+        cout << "Successfully deleted sceneID " << sceneID << endl;
     }
 }
 
-void Database::deleteFromChoices() {
+void Database::deleteFromChoices(int choiceID) {
+    string query = "DELETE FROM Choices WHERE ChoiceID = " + to_string(choiceID) + ";";
+    char* errmsg = nullptr;
 
+    if (sqlite3_exec(DB, query.c_str(), NULL, 0, &errmsg) != SQLITE_OK) {
+        cout << "Error deleting from choices:" << errmsg << endl;
+    }
+
+    int affected_rows = sqlite3_changes(DB);
+
+    if (affected_rows == 0) {
+        cout << "choiceID doesn't exist" << endl;
+    }
+    else {
+        cout << "Successfully deleted choice containing ID: " << choiceID << endl;
+    }
 }
 
 void Database::selectFromGames() {

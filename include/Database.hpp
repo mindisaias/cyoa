@@ -21,7 +21,7 @@ class Database {
 
         void deleteFromGames(string name);
         void deleteFromScenes(int sceneID);
-        void deleteFromChoices();
+        void deleteFromChoices(int choiceID);
 
 
         void selectFromGames();
