@@ -11,6 +11,9 @@ int main() {
     cout << "Hello world" << endl;
     myDB.insertToGames("Willow's Game", "Willow", "This is Willow's Game");
     myDB.insertToScenes(3, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
+    myDB.insertToUsers("WillowThinking", "WillowsPassword");
+    myDB.insertToChoices(1, "This is your choice.", 2);
+
     return 0;
 }
 

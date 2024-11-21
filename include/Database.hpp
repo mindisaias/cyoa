@@ -13,6 +13,8 @@ class Database {
         void openDB();
         void insertToGames(string name, string author, string description);
         void insertToScenes(int GameID, string prompt, string SceneName);
+        void insertToUsers(string username, string password);
+        void insertToChoices(int SceneID, string ChoiceText, int ResultSceneID);
         void deleteFromDB();
         void selectFromDB();
         ~Database();

@@ -152,6 +152,74 @@ void Database::insertToScenes(int GameID, string prompt, string SceneName) {
 
 
 }
+
+void Database::insertToUsers(string username, string password) {
+    // "CREATE TABLE IF NOT EXISTS Users ("
+    // "UserID INTEGER PRIMARY KEY AUTOINCREMENT, "
+    // "Username TEXT NOT NULL, "
+    // "Password TEXT NOT NULL);";
+    string query = "INSERT INTO Users (Username, Password) VALUES(?, ?);";
+
+    sqlite3_stmt* stmt;
+    // Prepare the statement
+    if (sqlite3_prepare_v2(DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing statement: " << sqlite3_errmsg(DB) << endl;
+        return;
+    }
+
+    // Use bind to amend each variable to sql statement
+    sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, password.c_str(), -1, SQLITE_STATIC);
+
+    // Execute the statement using step
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        cerr << "Error inserting data: " << sqlite3_errmsg(DB) << endl;
+    } 
+    else {
+        cout << "Successfully inserted user into Users table." << endl;
+    }
+
+    // Finalize statement created dynamically to free memory and prevent mem leaks
+    sqlite3_finalize(stmt);
+
+
+}
+
+void Database::insertToChoices(int SceneID, string ChoiceText, int ResultSceneID) {
+    // "CREATE TABLE IF NOT EXISTS Choices ("
+    // "ChoiceID INTEGER PRIMARY KEY AUTOINCREMENT, "
+    // "SceneID INTEGER, "
+    // "ChoiceText TEXT, "
+    // "ResultSceneID INTEGER, "
+    // "FOREIGN KEY (SceneID) REFERENCES Scenes(SceneID), "
+    // "FOREIGN KEY (ResultSceneID) REFERENCES Scenes(SceneID));";
+    string query = "INSERT INTO Choices (SceneID, ChoiceText, ResultSceneID) VALUES(?, ?, ?);";
+
+    sqlite3_stmt* stmt;
+    // Prepare the statement
+    if (sqlite3_prepare_v2(DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing statement: " << sqlite3_errmsg(DB) << endl;
+        return;
+    }
+
+    // Use bind to amend each variable to sql statement
+    sqlite3_bind_int(stmt, 1, SceneID);
+    sqlite3_bind_text(stmt, 2, ChoiceText.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_int(stmt, 3, ResultSceneID);
+
+    // Execute the statement using step
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        cerr << "Error inserting data: " << sqlite3_errmsg(DB) << endl;
+    } 
+    else {
+        cout << "Successfully inserted choice into Choices table." << endl;
+    }
+
+    // Finalize statement created dynamically to free memory and prevent mem leaks
+    sqlite3_finalize(stmt);
+
+
+}
 void Database::deleteFromDB() {
 
 }
