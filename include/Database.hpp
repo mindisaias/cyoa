@@ -19,8 +19,6 @@ class Database {
             cout << endl;
             return 0;
         }
-
-
         void insertToGames(string name, string author, string description);
         void insertToScenes(int GameID, string prompt, string SceneName);
         void insertToUsers(string username, string password);

@@ -20,7 +20,7 @@ Database::Database() {
                                  "SceneName TEXT, "
                                  "GameID INTEGER, "
                                  "Prompt TEXT NOT NULL, "
-                                 "CONSTRAINT FOREIGN KEY (GameID) REFERENCES Games(GameID) ON DELETE CASCADE);";
+                                 "CONSTRAINT fk_game_id FOREIGN KEY (GameID) REFERENCES Games(GameID) ON DELETE CASCADE);";
 
 
     const char* sqlChoicesTable = "CREATE TABLE IF NOT EXISTS Choices ("
@@ -28,7 +28,7 @@ Database::Database() {
                             "SceneID INTEGER, "
                             "ChoiceText TEXT, "
                             "ResultSceneID INTEGER, "
-                            "CONSTRAINT FOREIGN KEY (SceneID) REFERENCES Scenes(SceneID) ON DELETE CASCADE, "
+                            "CONSTRAINT fk_scene_id FOREIGN KEY (SceneID) REFERENCES Scenes(SceneID) ON DELETE CASCADE, "
                             "FOREIGN KEY (ResultSceneID) REFERENCES Scenes(SceneID));";
 
 
@@ -75,6 +75,9 @@ Database::Database() {
         cout << "Users Table successfully created/initialized" << endl;
     }
     // Whether or not tables already exist, database is now loaded with these tables existing in it
+    // ensure cascading works with below execution
+    sqlite3_exec(DB, "PRAGMA foreign_keys = ON;", 0, 0, 0);
+
 
 }
 
@@ -312,7 +315,7 @@ void Database::selectFromScenes() {
         cout << "Error selecting: " << errmsg << endl;
     }
     else {
-
+        
     }
 }
 

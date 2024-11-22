@@ -21,21 +21,21 @@ int main() {
 
     cout << endl;
     
-    myDB.deleteFromGames(1); // want success
+    myDB.deleteFromGames(1);
 
     cout << endl;
 
     myDB.selectFromScenes();
 
-    myDB.deleteFromChoices(1); // want success
-    myDB.deleteFromScenes(1); // want success
+    myDB.deleteFromChoices(1);
+    myDB.deleteFromScenes(1);
     
 
     cout << endl;
 
-    // myDB.deleteFromChoices(1); // want fail
-    // myDB.deleteFromScenes(1); // want fail
-    // myDB.deleteFromGames(1); // want fail
+    myDB.deleteFromChoices(1); // want fail
+    myDB.deleteFromScenes(1); // want fail
+    myDB.deleteFromGames(1); // want fail
     
     cout << endl;
 
