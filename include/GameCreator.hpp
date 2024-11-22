@@ -14,11 +14,13 @@ class GameCreator {
         void printMenu();
         //functions for game
         void addScene();
-        //void editScene();
-        //void addChoice();
         void printSceneNames();
-        //void chooseScene();
         //void removeScene();
+       
+        //void addChoice();
+        //void editScene();
+        //void chooseScene();
+
         //void publish();
         //void saveScene();
         //void chooseGame();
@@ -26,12 +28,21 @@ class GameCreator {
     private:
         void addScene(const string & prompt, const string & name);
 
-
-
-
-        Scene currScene;
         Game currGame;
 
+};
+
+//may possibly need this class 
+class SceneEditor {
+
+    // void start();
+    // void printMenu();
+    // void addChoice();
+
+
+
+    // Scene currScene;
+    
 };
 
 #endif
