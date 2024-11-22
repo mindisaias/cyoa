@@ -1,13 +1,14 @@
 #include "../include/GameCreator.hpp"
+#include "../include/SceneEditor.hpp"
 #include <iostream> 
 using namespace std;
 
 
-void wait(){
+void wait2(){
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cin.get();
 }
-void clearTerminal() {
+void clearTerminal2() {
     for (int i = 0; i < 100; i++) {
         cout << '\n';
     }
@@ -27,14 +28,14 @@ void GameCreator::start(){
 
     int choice = 0;
     do{
-        clearTerminal();
+        clearTerminal2();
         printMenu();
         cin >> choice;
         if(choice == 1) {
             addScene();
         }
         else if(choice == 2) {
-            // edit Scene
+            editScene();
         }
         else if(choice == 3) {
             //remove Scene 
@@ -57,12 +58,10 @@ void GameCreator::addScene() {
 
     string name;
     string prompt;
-    cout << "Enter the name of your scene (One Word): "; 
-    cin >> name;
-    
+    cout << "Enter the name of your scene: ";
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    getline(cin,name);
     cout << "Enter the prompt for scene \"" << name << "\":\n";
-
-    
     getline(cin,prompt);
 
     addScene(prompt,name);
@@ -77,13 +76,21 @@ void GameCreator::addScene(const string & prompt,const string & name) {
 }
 
 void GameCreator::printSceneNames() {
-    clearTerminal();
+    clearTerminal2();
     int i = 1;
     for(const auto & sceneName : currGame.gameScenes) {
         cout << i << ". "<< sceneName.first << "\n";
         i++;
     }
     cout << "Press Enter To Continue" << endl;
-    wait();
+    wait2();
 
 }
+
+
+void GameCreator::editScene() {
+    SceneEditor editor(currGame);
+    editor.start();
+
+}
+

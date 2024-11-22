@@ -7,6 +7,7 @@ add_library(simpleLibrary
     GameManager.cpp 
     Scene.cpp 
     User.cpp 
+    SceneEditor.cpp
 )
 add_library(Choice Choice.cpp)
 add_library(Database Database.cpp) 

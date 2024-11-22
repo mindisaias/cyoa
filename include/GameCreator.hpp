@@ -17,9 +17,7 @@ class GameCreator {
         void printSceneNames();
         //void removeScene();
        
-        //void addChoice();
-        //void editScene();
-        //void chooseScene();
+        void editScene();
 
         //void publish();
         //void saveScene();
@@ -27,22 +25,8 @@ class GameCreator {
         
     private:
         void addScene(const string & prompt, const string & name);
-
         Game currGame;
 
-};
-
-//may possibly need this class 
-class SceneEditor {
-
-    // void start();
-    // void printMenu();
-    // void addChoice();
-
-
-
-    // Scene currScene;
-    
 };
 
 #endif
