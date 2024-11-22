@@ -20,7 +20,7 @@ Database::Database() {
                                  "SceneName TEXT, "
                                  "GameID INTEGER, "
                                  "Prompt TEXT NOT NULL, "
-                                 "FOREIGN KEY (GameID) REFERENCES Games(GameID) ON DELETE CASCADE);";
+                                 "CONSTRAINT FOREIGN KEY (GameID) REFERENCES Games(GameID) ON DELETE CASCADE);";
 
 
     const char* sqlChoicesTable = "CREATE TABLE IF NOT EXISTS Choices ("
@@ -28,7 +28,7 @@ Database::Database() {
                             "SceneID INTEGER, "
                             "ChoiceText TEXT, "
                             "ResultSceneID INTEGER, "
-                            "FOREIGN KEY (SceneID) REFERENCES Scenes(SceneID) ON DELETE CASCADE, "
+                            "CONSTRAINT FOREIGN KEY (SceneID) REFERENCES Scenes(SceneID) ON DELETE CASCADE, "
                             "FOREIGN KEY (ResultSceneID) REFERENCES Scenes(SceneID));";
 
 
@@ -230,8 +230,8 @@ void Database::insertToChoices(int SceneID, string ChoiceText, int ResultSceneID
 
 }
 
-void Database::deleteFromGames(string name) {
-    string query = "DELETE FROM GAMES WHERE NAME = '" + name + "';";
+void Database::deleteFromGames(int gameID) {
+    string query = "DELETE FROM GAMES WHERE GameID = " + to_string(gameID) + ";";
     char* errmsg = nullptr;
 
     if (sqlite3_exec(DB, query.c_str(), NULL, 0, &errmsg) != SQLITE_OK) {
@@ -241,10 +241,10 @@ void Database::deleteFromGames(string name) {
     int affected_rows = sqlite3_changes(DB);
 
     if (affected_rows == 0) {
-        cout << "'" << name << "' doesn't exist" << endl;
+        cout << "Game doesn't exist" << endl;
     }
     else {
-        cout << "'" <<  name << "' successfully deleted" << endl;
+        cout << "Successfully deleted game containing ID " << gameID << endl;
     }
     
 }
@@ -304,7 +304,16 @@ void Database::selectFromChoices() {
 }
 
 void Database::selectFromScenes() {
+    string query = "SELECT * FROM SCENES";
 
+    char* errmsg;
+
+    if (sqlite3_exec(DB, query.c_str(), callback, 0, &errmsg) != SQLITE_OK) {
+        cout << "Error selecting: " << errmsg << endl;
+    }
+    else {
+
+    }
 }
 
 void Database::selectFromUsers() {
