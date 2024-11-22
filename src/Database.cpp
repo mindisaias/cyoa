@@ -58,7 +58,6 @@ Database::Database() {
         cout << "Choices Table successfully created/initialized" << endl;
     }
 
-
     if (sqlite3_exec(DB, sqlScenesTable, NULL, 0, &errmsg) != SQLITE_OK) {
         cout << "SQL Error Scenes Table: " << errmsg << endl;
         sqlite3_free(errmsg);
@@ -288,7 +287,16 @@ void Database::deleteFromChoices(int choiceID) {
 }
 
 void Database::selectFromGames() {
+    string query = "SELECT * FROM GAMES";
 
+    char* errmsg;
+
+    if (sqlite3_exec(DB, query.c_str(), callback, 0, &errmsg) != SQLITE_OK) {
+        cout << "Error selecting: " << errmsg;
+    }
+    else {
+
+    }
 }
 
 void Database::selectFromChoices() {

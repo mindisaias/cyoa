@@ -17,6 +17,10 @@ int main() {
 
     cout << endl;
 
+    myDB.selectFromGames();
+
+    cout << endl;
+
     myDB.deleteFromChoices(1); // want success
     myDB.deleteFromScenes(1); // want success
     myDB.deleteFromGames("Willows Game"); // want success
