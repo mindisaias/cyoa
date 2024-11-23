@@ -16,7 +16,7 @@ void Scene::addChoice(Choice* choiceToAdd) { choices.push_back(choiceToAdd); }
 int Scene::editChoice(int choiceNumber, Choice newChoice) {
     // 0 = success
     // 1 = invalid choice index
-    if (choiceNumber >= choices.size()) return 1;
+    if (choiceNumber > choices.size() + 1) return 1;
     if (choiceNumber < 1) return 1;
 
     Choice* choiceToChange = choices[choiceNumber - 1];
@@ -36,7 +36,7 @@ void Scene::display(ostream& output) const {
 }
 
 string Scene::getResultScene(int choiceNumber) const {
-    if(choiceNumber >= choices.size()) return "";
+    if(choiceNumber > choices.size() + 1) return "";
     if (choiceNumber < 1) return "";
     else return choices[choiceNumber - 1]->resultScene;
 }
