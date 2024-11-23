@@ -38,10 +38,13 @@
 
 ## Class Diagram
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/18729d3f-a6d8-4474-b4ca-d4a551c12470">
+![image](https://github.com/user-attachments/assets/e3e35838-1b4c-4a36-a376-e4e3d9f22936)
+
 
 > This diagram illustrates the seven classes we will be using to implement our project. The program class will hold the objects of all the other classes and runs our entire program through the run function, everything happens inside of here. The user class exists for the user to sign in and access the rest of our program, such as game play and game creation. Playing a game is done through the GameRunner class, and game creation is done through the GameCreator class. For our game class, it has basic identifying features and the core element of the game class is the vector of scenes. Each scene is essentially a page of the story which can be accessed through the choices class. The identifying features of the game, the users, and the scenes are all stored in a database and are crossreferenced with a unique id.
 
- 
+ ## SOLID Principles
+ > We added a scene editor class to follow the SOLID single responsibility principle. We did this because the game creator class was handling to many features. The game creator class was responsible for adding scenes, creating scenes, creating games, changing games, and adding games. So we split these features into two different classes. One called GameCreator and the other SceneEditor, now the responsibilities are evenly distributed among the two classes. It helped us write better code because now each class can focus on a single feature and we can change each of the objects separately and avoid cluttering one single class. 
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
  
