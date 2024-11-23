@@ -37,7 +37,6 @@
  
 
 ## Class Diagram
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/18729d3f-a6d8-4474-b4ca-d4a551c12470">
 <img width="600" alt="image" src= "https://github.com/user-attachments/assets/e3e35838-1b4c-4a36-a376-e4e3d9f22936">
 
 
@@ -45,27 +44,6 @@
 
  ## SOLID Principles
  > We added a scene editor class to follow the SOLID single responsibility principle. We did this because the game creator class was handling to many features. The game creator class was responsible for adding scenes, creating scenes, creating games, changing games, and adding games. So we split these features into two different classes. One called GameCreator and the other SceneEditor, now the responsibilities are evenly distributed among the two classes. It helped us write better code because now each class can focus on a single feature and we can change each of the objects separately and avoid cluttering one single class. 
- > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * Make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
->  * Each team member should also submit the Individual Contributions Form on Canvas for phase III. In this form, you need to fill in the names of all team members, the percentage of work contributed by each member for phase III, and a description of their contributions. Remember that each team member should submit the form individually.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
-
  
  > ## Final deliverable
  > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
