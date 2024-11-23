@@ -21,10 +21,10 @@ class DatabaseSelector {
 
         DatabaseSelector(Database db) : DB(db) {}
         
-        void selectFromGames(int GameID);
-        void selectFromScenes(int SceneID);
-        void selectFromChoices(int ChoiceID);
-        void selectFromUsers(string username, string password);
+        void selectFromGames();
+        void selectFromScenes();
+        void selectFromChoices();
+        void selectFromUsers();
 };
 
 #endif
