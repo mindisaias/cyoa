@@ -14,8 +14,8 @@ void DatabaseEditor::insertToGames(string name, string author, string descriptio
 
     sqlite3_stmt* stmt;
     // Prepare the statement
-    if (sqlite3_prepare_v2(DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
-        cerr << "Error preparing statement: " << sqlite3_errmsg(DB) << endl;
+    if (sqlite3_prepare_v2(DB.DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing statement: " << sqlite3_errmsg(DB.DB) << endl;
         return;
     }
 
@@ -26,7 +26,7 @@ void DatabaseEditor::insertToGames(string name, string author, string descriptio
 
     // Execute the statement using step
     if (sqlite3_step(stmt) != SQLITE_DONE) {
-        cerr << "Error inserting data: " << sqlite3_errmsg(DB) << endl;
+        cerr << "Error inserting data: " << sqlite3_errmsg(DB.DB) << endl;
     } 
     else {
         cout << "Successfully inserted game into Games table." << endl;
@@ -50,8 +50,8 @@ void DatabaseEditor::insertToScenes(int GameID, string prompt, string SceneName)
 
     sqlite3_stmt* stmt;
     // Prepare the statement
-    if (sqlite3_prepare_v2(DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
-        cerr << "Error preparing statement: " << sqlite3_errmsg(DB) << endl;
+    if (sqlite3_prepare_v2(DB.DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing statement: " << sqlite3_errmsg(DB.DB) << endl;
         return;
     }
 
@@ -62,7 +62,7 @@ void DatabaseEditor::insertToScenes(int GameID, string prompt, string SceneName)
 
     // Execute the statement using step
     if (sqlite3_step(stmt) != SQLITE_DONE) {
-        cerr << "Error inserting data: " << sqlite3_errmsg(DB) << endl;
+        cerr << "Error inserting data: " << sqlite3_errmsg(DB.DB) << endl;
     } 
     else {
         cout << "Successfully inserted scene into Scenes table." << endl;
@@ -83,8 +83,8 @@ void DatabaseEditor::insertToUsers(string username, string password) {
 
     sqlite3_stmt* stmt;
     // Prepare the statement
-    if (sqlite3_prepare_v2(DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
-        cerr << "Error preparing statement: " << sqlite3_errmsg(DB) << endl;
+    if (sqlite3_prepare_v2(DB.DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing statement: " << sqlite3_errmsg(DB.DB) << endl;
         return;
     }
 
@@ -94,7 +94,7 @@ void DatabaseEditor::insertToUsers(string username, string password) {
 
     // Execute the statement using step
     if (sqlite3_step(stmt) != SQLITE_DONE) {
-        cerr << "Error inserting data: " << sqlite3_errmsg(DB) << endl;
+        cerr << "Error inserting data: " << sqlite3_errmsg(DB.DB) << endl;
     } 
     else {
         cout << "Successfully inserted user into Users table." << endl;
@@ -118,8 +118,8 @@ void DatabaseEditor::insertToChoices(int SceneID, string ChoiceText, int ResultS
 
     sqlite3_stmt* stmt;
     // Prepare the statement
-    if (sqlite3_prepare_v2(DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
-        cerr << "Error preparing statement: " << sqlite3_errmsg(DB) << endl;
+    if (sqlite3_prepare_v2(DB.DB, query.c_str(), -1, &stmt, NULL) != SQLITE_OK) {
+        cerr << "Error preparing statement: " << sqlite3_errmsg(DB.DB) << endl;
         return;
     }
 
@@ -130,7 +130,7 @@ void DatabaseEditor::insertToChoices(int SceneID, string ChoiceText, int ResultS
 
     // Execute the statement using step
     if (sqlite3_step(stmt) != SQLITE_DONE) {
-        cerr << "Error inserting data: " << sqlite3_errmsg(DB) << endl;
+        cerr << "Error inserting data: " << sqlite3_errmsg(DB.DB) << endl;
     } 
     else {
         cout << "Successfully inserted choice into Choices table." << endl;
@@ -146,11 +146,11 @@ void DatabaseEditor::deleteFromGames(int gameID) {
     string query = "DELETE FROM GAMES WHERE GameID = " + to_string(gameID) + ";";
     char* errmsg = nullptr;
 
-    if (sqlite3_exec(DB, query.c_str(), NULL, 0, &errmsg) != SQLITE_OK) {
+    if (sqlite3_exec(DB.DB, query.c_str(), NULL, 0, &errmsg) != SQLITE_OK) {
         cout << "Error deleting from games: " << errmsg << endl;
     }
     
-    int affected_rows = sqlite3_changes(DB);
+    int affected_rows = sqlite3_changes(DB.DB);
 
     if (affected_rows == 0) {
         cout << "Game doesn't exist" << endl;

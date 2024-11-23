@@ -9,7 +9,7 @@ void DatabaseSelector::selectFromGames(int gameID) {
 
     char* errmsg;
 
-    if (sqlite3_exec(DB, query.c_str(), callback, 0, &errmsg) != SQLITE_OK) {
+    if (sqlite3_exec(DB.DB, query.c_str(), callback, 0, &errmsg) != SQLITE_OK) {
         cout << "Error selecting: " << errmsg;
     }
     else {
@@ -26,7 +26,7 @@ void DatabaseSelector::selectFromScenes(int sceneID) {
 
     char* errmsg;
 
-    if (sqlite3_exec(DB, query.c_str(), callback, 0, &errmsg) != SQLITE_OK) {
+    if (sqlite3_exec(DB.DB, query.c_str(), callback, 0, &errmsg) != SQLITE_OK) {
         cout << "Error selecting: " << errmsg << endl;
     }
     else {
