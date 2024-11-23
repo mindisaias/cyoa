@@ -8,9 +8,11 @@ void wait(){
     cin.get();
 }
 void clearTerminal() {
-    for (int i = 0; i < 100; i++) {
-        cout << '\n';
-    }
+    // for (int i = 0; i < 100; i++) {
+    //     cout << '\n';
+    // }
+
+    std::cout << "\033[2J\033[1;1H";
 }
 
 void SceneEditor::printEditMenu() {
@@ -46,7 +48,35 @@ void SceneEditor::changeScene() {
 }
 
 void SceneEditor::addChoice() {
-    cout << "add choice stuff" << endl;
+    clearTerminal();
+    cout << "Current Scene:\n";
+    currScene.display(cout);
+
+    cout << "Enter Choice Text:\n";
+    string text;
+    cin.ignore();
+    getline(cin,text);
+    
+    cout <<"\n Select the Resultant Scene:\n";
+    string resultScene;
+
+    vector<Scene*> scenes;
+    scenes.reserve(currGame.gameScenes.size());
+    int i = 1;
+    for(const auto & sceneName : currGame.gameScenes) {
+        cout << i << ". "<< sceneName.first << "\n";
+        scenes.push_back(sceneName.second);
+        i++;
+    }
+    cout << "Select Scene: ";
+    int choice;
+    cin >> choice;
+    resultScene = scenes.at(choice - 1)->getSceneName();
+    
+    Choice * newChoice = new Choice(text,resultScene);
+
+    currScene.addChoice(newChoice);
+
 
 }
 

@@ -9,9 +9,11 @@ void wait2(){
     cin.get();
 }
 void clearTerminal2() {
-    for (int i = 0; i < 100; i++) {
-        cout << '\n';
-    }
+    // for (int i = 0; i < 100; i++) {
+    //     cout << '\n';
+    // }
+
+    std::cout << "\033[2J\033[1;1H";
 }
 
 void GameCreator::printMenu() {
