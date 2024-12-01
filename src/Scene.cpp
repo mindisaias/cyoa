@@ -16,9 +16,10 @@ void Scene::addChoice(Choice* choiceToAdd) { choices.push_back(choiceToAdd); }
 int Scene::editChoice(int choiceNumber, Choice newChoice) {
     // 0 = success
     // 1 = invalid choice index
-    if (choiceNumber > choices.size()) return 1;
+    if (choiceNumber > choices.size() + 1) return 1;
+    if (choiceNumber < 1) return 1;
 
-    Choice* choiceToChange = choices[choiceNumber];
+    Choice* choiceToChange = choices[choiceNumber - 1];
     choiceToChange->resultScene = newChoice.resultScene;
     choiceToChange->text = newChoice.text;
     return 0;
@@ -34,7 +35,8 @@ void Scene::display(ostream& output) const {
     output << endl;
 }
 
-string Scene::getResultScene(int choiceIndex) const {
-    if(choiceIndex > choices.size()) return "";
-    else return choices[choiceIndex]->resultScene;
+string Scene::getResultScene(int choiceNumber) const {
+    if(choiceNumber > choices.size() + 1) return "";
+    if (choiceNumber < 1) return "";
+    else return choices[choiceNumber - 1]->resultScene;
 }

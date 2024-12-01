@@ -90,8 +90,7 @@ TEST(SceneEditChoice, ChangeOneScene) { // TEST 6
 
     // add the choices to the scene
     myScene.addChoice(choice1);
-    myScene.editChoice(0, newChoice);
-
+    myScene.editChoice(1, newChoice);
     // output 
     myScene.display(output);
     string res = output.str();
