@@ -21,8 +21,9 @@ User GameManager::createAccount() { // MOCK FUNCTION
 
         // get the username
         cout << "Enter your username: ";
+        cin.ignore();
         getline(cin, username);
-        
+
         // check for spaces in the username
         for(char c: username) {
             if(isspace(c)){
@@ -83,6 +84,9 @@ User GameManager::createAccount() { // MOCK FUNCTION
     } // end password check
 
     // assign the values and return
+    cout << username << endl;
+    cout << pwd << endl;
+    
     newUser.username = username;
     newUser.password = pwd;
 
