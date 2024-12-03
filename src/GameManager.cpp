@@ -22,7 +22,7 @@ User GameManager::createAccount() { // MOCK FUNCTION
         // get the username
         cout << "Enter your username: ";
         getline(cin, username);
-
+        
         // check for spaces in the username
         for(char c: username) {
             if(isspace(c)){
@@ -55,31 +55,19 @@ User GameManager::createAccount() { // MOCK FUNCTION
             cout << "Password must be within range [8, 64]" << endl;
             continue;
         }
-
-        // checks upper
-        for(char c: pwd) {
-            if(isupper(c)) {
-                containsUpper = true;
-                break;
-            }
-        }
         
-        // checks lower
-        for(char c: pwd) {
-            if(!isupper(c)) {
+        // checks validity
+        for (char c : pwd) {
+            if (isupper(c)) {
+                containsUpper = true;
+            }
+            if (islower(c)) {
                 containsLower = true;
-                break;
             }
-        }
-
-        // checks number
-        for(char c: pwd) {
-            if(isdigit(c)) {
+            if (isdigit(c)) {
                 containsNumber = true;
-                break;
             }
         }
-
         //password is valid
         if(containsUpper && containsLower && containsNumber) break;
 
