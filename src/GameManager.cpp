@@ -6,14 +6,102 @@ GameManager::~GameManager() {
     }
 }
 
-User GameManager::signin() const { // MOCK FUNCTION
+User GameManager::createAccount() { // MOCK FUNCTION
     User newUser;
-    newUser.username = "nander100";
-    newUser.password = "password";
-    return newUser;
+    // newUser.username = "nander100";
+    // newUser.password = "password";
+    // return newUser;
+    string username;
+    string pwd;
+
+    // USERNAME LOOP
+    while(1) {
+        // init flags 
+        bool validName = true;
+
+        // get the username
+        cout << "Enter your username: ";
+        getline(cin, username);
+
+        // check for spaces in the username
+        for(char c: username) {
+            if(isspace(c)){
+                validName = false;
+                break;
+            }
+        } 
+
+        // verify and break while loop
+        if(!validName) 
+            cout << "Invalid Username. Username must not contain a space character." << endl;
+        else break;
+
+    } // end username loop
+
+    // PASSWORD LOOP
+    while(1) {
+        // init flags
+        bool validPwd       = 0;
+        bool containsUpper  = 0;
+        bool containsLower  = 0;
+        bool containsNumber = 0;
+        
+        // get password
+        cout << "Enter your password: ";
+        getline(cin, pwd);
+
+        // ensure bounds to reduce runtime and database size
+        if(pwd.length() < 8 || pwd.length() > 64) {
+            cout << "Password must be within range [8, 64]" << endl;
+            continue;
+        }
+
+        // checks upper
+        for(char c: pwd) {
+            if(isupper(c)) {
+                containsUpper = true;
+                break;
+            }
+        }
+        
+        // checks lower
+        for(char c: pwd) {
+            if(!isupper(c)) {
+                containsLower = true;
+                break;
+            }
+        }
+
+        // checks number
+        for(char c: pwd) {
+            if(isdigit(c)) {
+                containsNumber = true;
+                break;
+            }
+        }
+
+        //password is valid
+        if(containsUpper && containsLower && containsNumber) break;
+
+        // password is not valid
+        if(!containsUpper)
+            cout << "Password must contain at least one uppercase character." << endl;
+
+        if(!containsLower)
+            cout << "Password must contain at least one lowercase character." << endl;
+
+        if(!containsNumber) 
+            cout << "Password must contain at least one numeric digit (0-9)." << endl;
+    } // end password check
+
+    // assign the values and return
+    newUser.username = username;
+    newUser.password = pwd;
+
+    return newUser;  
 }
 
-User GameManager::createAccount() { // MOCK FUNCTION
+User GameManager::signin() const { // MOCK FUNCTION
     User newUser;
     newUser.username = "nander100";
     newUser.password = "password";

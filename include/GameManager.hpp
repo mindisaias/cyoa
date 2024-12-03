@@ -31,7 +31,7 @@ class GameManager {
         // HELPER FUNCTIONS
         void loadScreens(); // loads all of the default screens
         User signin() const; // returns the name of the user that was signed in
-        User createAccount();
+        User createAccount(); // returns the name of the
     public:
         void run();
         ~GameManager();
