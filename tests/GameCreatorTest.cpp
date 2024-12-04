@@ -2,8 +2,8 @@
 
 int main() {
 
-    GameCreator g;
-    g.start();
+   // GameCreator g;
+   // g.start();
     // g.addScene();
 
     // cout << endl;

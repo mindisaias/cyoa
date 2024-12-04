@@ -1,7 +1,6 @@
 #include "../include/GameManager.hpp"
 
-GameManager::GameManager() {
-}
+
 
 GameManager::~GameManager() {
     for(const auto& it : screens) {
@@ -205,7 +204,6 @@ void GameManager::run() {
             // assign next scene name
         }  
         else if(nextSceneName == CREATE_GAMES_NAME) {
-            // GC = GameCreator(gameDatabase);
             GC.start();
             cout << "\033[2J\033[1;1H";
         }
