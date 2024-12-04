@@ -8,7 +8,9 @@ add_library(simpleLibrary
     GameRunner.cpp 
     GameManager.cpp 
     Scene.cpp 
-    User.cpp
+    User.cpp 
+    SceneEditor.cpp
+
 )
 add_library(Choice Choice.cpp)
 add_library(Database Database.cpp) 
