@@ -53,6 +53,7 @@ User GameManager::createAccount() { // MOCK FUNCTION
 
         // ensure bounds to reduce runtime and database size
         if(pwd.length() < 8 || pwd.length() > 64) {
+            cout << "\033[2J\033[1;1H";
             cout << "Password must be within range [8, 64]" << endl;
             continue;
         }
@@ -73,6 +74,7 @@ User GameManager::createAccount() { // MOCK FUNCTION
         if(containsUpper && containsLower && containsNumber) break;
 
         // password is not valid
+        cout << "\033[2J\033[1;1H";
         if(!containsUpper)
             cout << "Password must contain at least one uppercase character." << endl;
 
@@ -159,7 +161,7 @@ void GameManager::loadScreens() {
 
 void GameManager::run() {
     loadScreens(); // Initialize Screnes
-
+    cout << "\033[2J\033[1;1H";
     // placeholder variable for scene transitions
     string nextSceneName; 
     int userDecision;
@@ -168,11 +170,13 @@ void GameManager::run() {
     currentScene = screens[WELCOME_NAME];
     currentScene->display(cout); // prints out the options
     cin >> userDecision;
+    cout << "\033[2J\033[1;1H";
     nextSceneName = currentScene->getResultScene(userDecision);
     while(nextSceneName == "") { // checks for valid input
         cout << "Invalid choice. Select a valid option." << endl;
         currentScene->display(cout);
         cin >> userDecision;
+        cout << "\033[2J\033[1;1H";
         nextSceneName = currentScene->getResultScene(userDecision);
     }
 
@@ -183,12 +187,14 @@ void GameManager::run() {
         currUser = createAccount();
 
     // Once the user is signed in display the main menu 
+    cout << "\033[2J\033[1;1H";
     currentScene = screens[MAIN_MENU_NAME];
     cout << "Welcome " << currUser.username << "! ";
 
     while(nextSceneName != QUIT_GAME_NAME) {
         currentScene->display(cout);
         cin >> userDecision;
+        cout << "\033[2J\033[1;1H";
         nextSceneName = currentScene->getResultScene(userDecision);
 
         if(nextSceneName == PLAY_GAMES_NAME){
@@ -196,8 +202,8 @@ void GameManager::run() {
             // assign next scene name
         }  
         else if(nextSceneName == CREATE_GAMES_NAME) {
-            // run GC
-            // assign next scene name
+            GC.start();
+            cout << "\033[2J\033[1;1H";
         }
         else if(nextSceneName == QUIT_GAME_NAME) {
             return; // end the program
