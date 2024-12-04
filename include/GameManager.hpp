@@ -5,6 +5,9 @@
 #include "Game.hpp"
 #include "GameRunner.hpp"
 #include "GameCreator.hpp"
+#include "Database.hpp"
+#include "DatabaseEditor.hpp"
+#include "DatabaseSelector.hpp"
 #include "User.hpp"
 #include <map>
 
@@ -22,6 +25,10 @@ class GameManager {
         Game currGame;
         
         //TODO: add database
+        Database myDB;
+        DatabaseEditor DBEditor;
+        DatabaseSelector DBSelector;
+
         User currUser;
         GameCreator GC;
         GameRunner GR;
@@ -33,6 +40,7 @@ class GameManager {
         User signin() ; // returns the name of the user that was signed in
         User createAccount(); // returns the name of the
     public:
+        GameManager() : DBEditor(myDB.DB), DBSelector(myDB.DB) {}
         void run();
         ~GameManager();
 };
