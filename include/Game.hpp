@@ -1,6 +1,6 @@
 #ifndef GAME_HPP
 #define GAME_HPP
-
+#include <map>
 #include "Scene.hpp"
 
 class Game {
@@ -13,7 +13,7 @@ class Game {
         
     private:
         int gameID;
-        vector<Scene> scenes; 
+        map<string, Scene*> gameScenes; 
 
 };
 
