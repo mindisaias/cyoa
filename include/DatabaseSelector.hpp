@@ -8,8 +8,8 @@
 using namespace std;
 
 class DatabaseSelector {
-    
-        Database DB;
+    public: 
+        sqlite3* DB;
         
         static int callback(void *NotUsed, int argc, char **argv, char **azColName){
             for(int i = 0; i < argc; i++){
@@ -19,7 +19,7 @@ class DatabaseSelector {
             return 0;
         }
 
-        DatabaseSelector(Database db) : DB(db) {}
+        DatabaseSelector(sqlite3* db) : DB(db) {}
         
         void selectFromGames();
         void selectFromScenes();

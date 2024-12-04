@@ -1,12 +1,14 @@
 add_library(simpleLibrary
     Choice.cpp
     Database.cpp 
+    DatabaseEditor.cpp
+    DatabaseSelector.cpp
     Game.cpp 
     GameCreator.cpp 
     GameRunner.cpp 
     GameManager.cpp 
     Scene.cpp 
-    User.cpp 
+    User.cpp
 )
 add_library(Choice Choice.cpp)
 add_library(Database Database.cpp) 

@@ -9,10 +9,10 @@
 using namespace std;
 
 class DatabaseEditor {
-    
-        Database DB;
-        
-        DatabaseEditor(Database db) : DB(db) {}
+    public:
+        sqlite3* DB;
+
+        DatabaseEditor(sqlite3* db) : DB(db) {}
         
         void insertToGames(string name, string author, string description);
         void insertToScenes(int GameID, string prompt, string SceneName);

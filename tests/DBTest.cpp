@@ -1,43 +1,34 @@
 #include "gtest/gtest.h"
 #include "../include/Database.hpp"
+#include "../include/DatabaseEditor.hpp"
+#include "../include/DatabaseSelector.hpp"
 #include <iostream>
 
 using namespace std;
 
 int main() {
     Database myDB;
+    DatabaseSelector DBSelector(myDB.DB);
+    DatabaseEditor DBEditor(myDB.DB);
     string myGame = "myGame";
 
     cout << endl;
 
-    myDB.insertToGames("Willows Game", "Willow", "This is Willow's Game");
-    myDB.insertToScenes(1, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
-    myDB.insertToUsers("WillowThinking", "WillowsPassword");
-    myDB.insertToChoices(1, "This is your choice.", 2);
+    DBEditor.insertToGames("Willows Game", "Willow", "This is Willow's Game");
+    DBEditor.insertToScenes(1, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
+    DBEditor.insertToUsers("WillowThinking", "WillowsPassword");
+    DBEditor.insertToChoices(1, "This is your choice.", 1);
 
     cout << endl;
 
-    myDB.selectFromGames();
+    DBSelector.selectFromGames();
 
     cout << endl;
     
-    myDB.deleteFromGames(1);
+    DBEditor.deleteFromGames(1);
 
     cout << endl;
-
-    myDB.selectFromScenes();
-
-    myDB.deleteFromChoices(1);
-    myDB.deleteFromScenes(1);
-    
-
-    cout << endl;
-
-    myDB.deleteFromChoices(1); // want fail
-    myDB.deleteFromScenes(1); // want fail
-    myDB.deleteFromGames(1); // want fail
-    
-    cout << endl;
+    DBSelector.selectFromScenes();
 
     
 
