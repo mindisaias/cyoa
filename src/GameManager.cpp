@@ -89,7 +89,7 @@ User GameManager::createAccount() { // MOCK FUNCTION
     return newUser;  
 }
 
-User GameManager::signin() const { // MOCK FUNCTION
+User GameManager::signin()  { // MOCK FUNCTION
     User newUser;
     bool isValid;
     string userName;
@@ -104,7 +104,7 @@ User GameManager::signin() const { // MOCK FUNCTION
     cout << "Enter your password: ";
     getline(cin, pwd);
     
-    while(!newUser.isValidCredentials(userName, pwd)) {
+    // while(/*!newUser.isValidCredentials(userName, pwd)*/) {
         cout << "Invalid username or password" << endl;
         // get the username
         cout << "Enter your username: ";
@@ -114,7 +114,7 @@ User GameManager::signin() const { // MOCK FUNCTION
         //get password
         cout << "Enter your password: ";
         getline(cin, pwd);
-    }
+    // }
 
     // assign the values and return
     newUser.username = userName;
@@ -164,7 +164,7 @@ void GameManager::run() {
     string nextSceneName; 
     int userDecision;
 
-    // starting screen = welcome page 
+    // prints the welcome screen
     currentScene = screens[WELCOME_NAME];
     currentScene->display(cout); // prints out the options
     cin >> userDecision;
@@ -184,7 +184,7 @@ void GameManager::run() {
 
     // Once the user is signed in display the main menu 
     currentScene = screens[MAIN_MENU_NAME];
-    cout << "Welcome " << currUser.username << "!";
+    cout << "Welcome " << currUser.username << "! ";
 
     while(nextSceneName != QUIT_GAME_NAME) {
         currentScene->display(cout);
