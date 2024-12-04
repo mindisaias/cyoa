@@ -1,11 +1,14 @@
 #include "Database.hpp"
+#include "DatabaseEditor.hpp"
+#include "DatabaseSelector.hpp"
 #include <iostream>
 
 using namespace std;
 
-Database::Database() {
+Database::Database(): DBEditor(DB), DBSelector(DB) {
 // Open database
     openDB();
+
 // Create tables if they don't already exist
     const char* sqlGamesTable =  "CREATE TABLE IF NOT EXISTS Games ("
                             "GameID INTEGER PRIMARY KEY AUTOINCREMENT, "

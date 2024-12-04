@@ -74,6 +74,7 @@ void GameCreator::addScene(const string & prompt,const string & name) {
     Scene * newScene = new Scene(prompt,name);
 
     currGame.gameScenes[name] = newScene;
+  
     if(currGame.first == nullptr) {
         currGame.first = newScene;
     }

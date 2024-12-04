@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include "Database.hpp"
+#include "DatabaseEditor.hpp"
+#include "DatabaseSelector.hpp"
 #include <../sqlite3/sqlite3.h>
 #include <cstring>
 
