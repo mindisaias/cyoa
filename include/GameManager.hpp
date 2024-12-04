@@ -16,7 +16,7 @@
 #define LIST_GAMES_NAME       "LG"
 #define PLAY_GAMES_NAME       "PG"
 #define CREATE_GAMES_NAME     "CG"
-
+#define QUIT_GAME_NAME        "QG"
 class GameManager {
     private:
         Game currGame;

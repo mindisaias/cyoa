@@ -84,20 +84,42 @@ User GameManager::createAccount() { // MOCK FUNCTION
     } // end password check
 
     // assign the values and return
-    cout << username << endl;
-    cout << pwd << endl;
-    
     newUser.username = username;
     newUser.password = pwd;
-
     return newUser;  
 }
 
 User GameManager::signin() const { // MOCK FUNCTION
     User newUser;
-    newUser.username = "nander100";
-    newUser.password = "password";
-    return newUser;
+    bool isValid;
+    string userName;
+    string pwd;
+    
+    // get the username
+    cout << "Enter your username: ";
+    cin.ignore();
+    getline(cin, userName);
+
+    //get password
+    cout << "Enter your password: ";
+    getline(cin, pwd);
+    
+    while(!newUser.isValidCredentials(userName, pwd)) {
+        cout << "Invalid username or password" << endl;
+        // get the username
+        cout << "Enter your username: ";
+        cin.ignore();
+        getline(cin, userName);
+
+        //get password
+        cout << "Enter your password: ";
+        getline(cin, pwd);
+    }
+
+    // assign the values and return
+    newUser.username = userName;
+    newUser.password = pwd;
+    return newUser; 
 }
 
 void GameManager::loadScreens() { 
@@ -118,12 +140,13 @@ void GameManager::loadScreens() {
     screens[CREATE_ACCOUNT_NAME]->setSceneName(CREATE_ACCOUNT_NAME);
     screens[CREATE_ACCOUNT_NAME]->addChoice(new Choice("To Main Menu", MAIN_MENU_NAME));
 
-    // main menu
+    // main menua
     screens[MAIN_MENU_NAME] = new Scene();
     screens[MAIN_MENU_NAME]->setSceneName(MAIN_MENU_NAME);
     screens[MAIN_MENU_NAME]->editPrompt("What would you like to do?");
     screens[MAIN_MENU_NAME]->addChoice(new Choice("Play a user created game", MAIN_MENU_NAME));
     screens[MAIN_MENU_NAME]->addChoice(new Choice("Start/resume game editing", CREATE_GAMES_NAME));
+    screens[MAIN_MENU_NAME]->addChoice(new Choice("Quit game", QUIT_GAME_NAME));
 
     //play game
     screens[PLAY_GAMES_NAME] = new Scene();
@@ -161,14 +184,24 @@ void GameManager::run() {
 
     // Once the user is signed in display the main menu 
     currentScene = screens[MAIN_MENU_NAME];
-    cout << "Welcome " << currUser.username << "! ";
-    currentScene->display(cout);
-    cin >> userDecision;
-    nextSceneName = currentScene->getResultScene(userDecision);
-    
-    // TODO: fill a string list with all the possible playable games from the database
-    // TODO: create 
+    cout << "Welcome " << currUser.username << "!";
 
+    while(nextSceneName != QUIT_GAME_NAME) {
+        currentScene->display(cout);
+        cin >> userDecision;
+        nextSceneName = currentScene->getResultScene(userDecision);
 
-    // create a scene to display the games
+        if(nextSceneName == PLAY_GAMES_NAME){
+            // run GR
+            // assign next scene name
+        }  
+        else if(nextSceneName == CREATE_GAMES_NAME) {
+            // run GC
+            // assign next scene name
+        }
+        else if(nextSceneName == QUIT_GAME_NAME) {
+            return; // end the program
+        }
+    }
+    return;
 }
