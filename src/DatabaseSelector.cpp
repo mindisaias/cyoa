@@ -48,6 +48,15 @@ vector<vector<string>> DatabaseSelector::selectFromScenes(int gameID) {
 
 }
 
-void DatabaseSelector::selectFromUsers() {
+vector<vector<string>> DatabaseSelector::selectFromUsers() {
+    string query = "SELECT * FROM USERS;";
+    vector<vector<string>> rows;
+    char* errmsg;
 
+    if (sqlite3_exec(DB, query.c_str(), dataCallback, &rows, &errmsg) != SQLITE_OK) {
+        cout << "Error selecting: " << errmsg << endl;
+    }
+
+    return rows;
+ 
 }
