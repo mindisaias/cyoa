@@ -19,6 +19,7 @@ add_library(GameManager GameManager.cpp)
 add_library(Scene Scene.cpp)
 add_library(User User.cpp)
 
+target_link_libraries(simpleLibrary databaseLibrary) 
 
 add_executable(${CMAKE_PROJECT_NAME} 
     main.cpp
