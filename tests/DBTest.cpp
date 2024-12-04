@@ -8,28 +8,26 @@ using namespace std;
 
 int main() {
     Database myDB;
-    DatabaseSelector DBSelector(myDB.DB);
-    DatabaseEditor DBEditor(myDB.DB);
     string myGame = "myGame";
 
     cout << endl;
 
-    DBEditor.insertToGames("Willows Game", "Willow", "This is Willow's Game");
-    DBEditor.insertToScenes(1, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
-    DBEditor.insertToUsers("WillowThinking", "WillowsPassword");
-    DBEditor.insertToChoices(1, "This is your choice.", 1);
+    myDB.DBEditor.insertToGames("Willows Game", "Willow", "This is Willow's Game");
+    myDB.DBEditor.insertToScenes(1, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
+    myDB.DBEditor.insertToUsers("WillowThinking", "WillowsPassword");
+    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
 
     cout << endl;
 
-    DBSelector.selectFromGames();
+    myDB.DBSelector.selectFromGames();
 
     cout << endl;
     
-    DBEditor.deleteFromGames(1);
+    myDB.DBSelector.selectFromScenes();
 
     cout << endl;
-    DBSelector.selectFromScenes();
 
+    myDB.DBEditor.deleteFromGames(1);
     
 
     return 0;

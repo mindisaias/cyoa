@@ -10,7 +10,6 @@ add_library(simpleLibrary
     Scene.cpp 
     User.cpp 
     SceneEditor.cpp
-
 )
 add_library(Choice Choice.cpp)
 add_library(Database Database.cpp) 

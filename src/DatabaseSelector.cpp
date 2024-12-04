@@ -1,3 +1,5 @@
+#include "Database.hpp"
+#include "DatabaseEditor.hpp"
 #include "DatabaseSelector.hpp"
 #include <iostream>
 
