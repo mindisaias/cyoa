@@ -40,7 +40,7 @@ void GameCreator::start(){
             editScene();
         }
         else if(choice == 3) {
-            //remove Scene 
+            save();
         }
         else if(choice == 4) {
             printSceneNames();
@@ -100,7 +100,20 @@ void GameCreator::editScene() {
 
 }
 
-void save() {
+void GameCreator::save() {
+
+    DB.DBEditor.insertToGames(currGame.title,currGame.author,currGame.description);
+    auto games = DB.DBSelector.selectFromGames();
+    int gameid;
+    for(const auto game : games) {
+        if(game.at(1) == currGame.title) {
+            gameid = stoi(game.at(0));
+        }
+    }
+    for(const auto tuple : currGame.gameScenes) {
+        DB.DBEditor.insertToScenes(gameid,tuple.second->prompt,tuple.first);
+    }
+    // DB.DBEditor.insertToChoices()
     
 }
 
