@@ -24,7 +24,7 @@
 
 class GameManager {
     private:
-        Database* gameDatabase;
+        Database gameDatabase;
         Game currGame;
         User currUser;
         GameCreator GC;
@@ -37,6 +37,7 @@ class GameManager {
         User signin() ; // returns the name of the user that was signed in
         User createAccount(); // returns the name of the
     public:
+        GameManager();
         GameManager(Database* db) : gameDatabase(db) {}
         void run();
         ~GameManager();
