@@ -2,6 +2,7 @@
 #define GAME_CREATOR_HPP
 
 #include "Game.hpp"
+#include "Database.hpp"
 #include <map> 
 #include <limits>
 
@@ -9,6 +10,7 @@ using namespace std;
 
 class GameCreator {
     public:
+        GameCreator(Database& db) : DB(db) {}
         //helpers
         void start();
         void printMenu();
@@ -20,12 +22,14 @@ class GameCreator {
         void editScene();
 
         //void publish();
-        //void saveScene();
+        //void save();
         //void chooseGame();
         
     private:
         void addScene(const string & prompt, const string & name);
         Game currGame;
+        Database DB;
+
 
 };
 

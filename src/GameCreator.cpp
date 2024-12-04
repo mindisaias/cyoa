@@ -100,3 +100,7 @@ void GameCreator::editScene() {
 
 }
 
+void save() {
+    
+}
+
