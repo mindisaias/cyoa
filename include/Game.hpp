@@ -10,9 +10,9 @@ class Game {
         string title;
         string author;
         string description;
-    
         int gameID;
         map<string, Scene*> gameScenes; 
+        Scene * first = nullptr;
 
 };
 
