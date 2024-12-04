@@ -6,34 +6,46 @@
 using namespace std;
 
 
-void DatabaseSelector::selectFromGames() {
+vector<vector<string>> DatabaseSelector::selectFromGames() {
+    vector<vector<string>> rows;
     string query = "SELECT * FROM GAMES";
 
     char* errmsg;
 
-    if (sqlite3_exec(DB, query.c_str(), callback, 0, &errmsg) != SQLITE_OK) {
+    if (sqlite3_exec(DB, query.c_str(), dataCallback, &rows, &errmsg) != SQLITE_OK) {
         cout << "Error selecting: " << errmsg;
     }
-    else {
 
-    }
+    sqlite3_exec(DB, query.c_str(), outputCallback, 0, &errmsg);
+
+    return rows;
 }
 
-void DatabaseSelector::selectFromChoices() {
-
-}
-
-void DatabaseSelector::selectFromScenes() {
-    string query = "SELECT * FROM SCENES";
+vector<vector<string>> DatabaseSelector::selectFromChoices(int sceneID) {
+    string query = "SELECT * FROM CHOICES WHERE sceneID = " + to_string(sceneID); + ";";
+    vector<vector<string>> rows;
 
     char* errmsg;
 
-    if (sqlite3_exec(DB, query.c_str(), callback, 0, &errmsg) != SQLITE_OK) {
+    if (sqlite3_exec(DB, query.c_str(), dataCallback, &rows, &errmsg) != SQLITE_OK) {
         cout << "Error selecting: " << errmsg << endl;
     }
-    else {
-        
+
+    return rows;
+
+}
+
+vector<vector<string>> DatabaseSelector::selectFromScenes(int gameID) {
+    string query = "SELECT * FROM SCENES WHERE GAMEID = " + to_string(gameID); + ";";
+    vector<vector<string>> rows;
+    char* errmsg;
+
+    if (sqlite3_exec(DB, query.c_str(), dataCallback, &rows, &errmsg) != SQLITE_OK) {
+        cout << "Error selecting: " << errmsg << endl;
     }
+
+    return rows;
+
 }
 
 void DatabaseSelector::selectFromUsers() {
