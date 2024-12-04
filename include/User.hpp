@@ -11,8 +11,8 @@ class User {
         int id;
         User(string u, string p): username(u), password(p) {} 
         bool isValidCredentials(string username, string password, sqlite3* db);
-    
-};
+        void addUser(string username, string password, sqlite3* db);
+};  
 
 
 #endif
