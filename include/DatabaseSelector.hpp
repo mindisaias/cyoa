@@ -6,14 +6,15 @@
 #include "DatabaseEditor.hpp"
 #include "DatabaseSelector.hpp"
 #include <cstring>
+#include <vector>
 
 using namespace std;
 
 class DatabaseSelector {
     public: 
         sqlite3* DB;
-        
-        static int callback(void *NotUsed, int argc, char **argv, char **azColName){
+       
+        static int outputCallback(void *NotUsed, int argc, char **argv, char **azColName){
             for(int i = 0; i < argc; i++){
                 cout << azColName[i] << " = " << (argv[i] ? argv[i] : "NULL") << endl;
             }
@@ -21,11 +22,26 @@ class DatabaseSelector {
             return 0;
         }
 
+        static int dataCallback(void *data, int argc, char **argv, char **azColName){
+            auto* rows = static_cast<vector<vector<string>>*>(data);
+
+            vector<string> currentRow;
+            for (int i = 0; i < argc; i++) {
+                if (argv[i]) {
+                    currentRow.push_back(argv[i]);
+                } else {
+                    currentRow.push_back("NULL");
+                }
+            }
+            rows->push_back(currentRow);
+            return 0;
+        }
+
         DatabaseSelector(sqlite3* db) : DB(db) {}
         
-        void selectFromGames();
-        void selectFromScenes();
-        void selectFromChoices();
+        vector<vector<string>> selectFromGames();
+        vector<vector<string>> selectFromScenes(int gameID);
+        vector<vector<string>> selectFromChoices(int sceneID);
         void selectFromUsers();
 };
 

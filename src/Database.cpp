@@ -31,9 +31,11 @@ Database::Database(): DB(nullptr), DBEditor(nullptr), DBSelector(nullptr) {
 
     const char* sqlChoicesTable = "CREATE TABLE IF NOT EXISTS Choices ("
                             "ChoiceID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                            "GameID Integer, "
                             "SceneID INTEGER, "
                             "ChoiceText TEXT, "
                             "ResultSceneID INTEGER, "
+                            "FOREIGN KEY (GameID) REFERENCES Games(GameID), "
                             "CONSTRAINT fk_scene_id FOREIGN KEY (SceneID) REFERENCES Scenes(SceneID) ON DELETE CASCADE, "
                             "FOREIGN KEY (ResultSceneID) REFERENCES Scenes(SceneID));";
 

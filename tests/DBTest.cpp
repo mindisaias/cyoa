@@ -13,19 +13,55 @@ int main() {
     cout << endl;
 
     myDB.DBEditor.insertToGames("Willows Game", "Willow", "This is Willow's Game");
+    myDB.DBEditor.insertToGames("Angels Game", "Angel", "This is Angel's Game");
+    myDB.DBEditor.insertToGames("Lynvys Game", "Lynvy", "This is Lynvy's Game");    
+    myDB.DBEditor.insertToGames("Alex Game", "Alex", "This is Alex's Game");
+
+
     myDB.DBEditor.insertToScenes(1, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
+    myDB.DBEditor.insertToScenes(1, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
+    myDB.DBEditor.insertToScenes(2, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
+    myDB.DBEditor.insertToScenes(2, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
+    myDB.DBEditor.insertToScenes(3, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
+    myDB.DBEditor.insertToScenes(3, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
+    myDB.DBEditor.insertToScenes(3, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
+
     myDB.DBEditor.insertToUsers("WillowThinking", "WillowsPassword");
+
+    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
+    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
+    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
+    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
+    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
+    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
+    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
     myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
 
     cout << endl;
 
-    myDB.DBSelector.selectFromGames();
+    vector<vector<string>> rows = myDB.DBSelector.selectFromGames();
 
     cout << endl;
-    
-    myDB.DBSelector.selectFromScenes();
+
+    for (const auto row : rows) {
+        cout << row[0] << " " << row[1] << " " << row[2] << " " << row[3] << " " << row[4] << endl << endl;
+    }
 
     cout << endl;
+
+    rows = myDB.DBSelector.selectFromScenes(1);
+
+    for (const auto row : rows) {
+        cout << row[0] << " " << row[1] << " " << row[2] << " " << row[3] << endl << endl;
+    }
+
+    cout << endl;
+
+    rows = myDB.DBSelector.selectFromChoices(1);
+
+    for (const auto row : rows) {
+        cout << row[0] << " " << row[1] << " " << row[2] << " " << row[3] << endl << endl;
+    }
 
     myDB.DBEditor.deleteFromGames(1);
     
