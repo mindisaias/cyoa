@@ -2,20 +2,31 @@
 #define GAME_CREATOR_HPP
 
 #include "Game.hpp"
+#include <map> 
+#include <limits>
+
+using namespace std;
 
 class GameCreator {
     public:
-        void chooseScene();
+        //helpers
+        void start();
+        void printMenu();
+        //functions for game
         void addScene();
-        void editScecne();
-        void removeScene();
-        void publish();
-        void saveScene();
-        void chooseGame();
+        void printSceneNames();
+        //void removeScene();
+       
+        void editScene();
+
+        //void publish();
+        //void saveScene();
+        //void chooseGame();
         
     private:
-        Scene currScene;
+        void addScene(const string & prompt, const string & name);
         Game currGame;
+
 };
 
 #endif

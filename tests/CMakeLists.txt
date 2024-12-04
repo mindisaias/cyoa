@@ -36,6 +36,10 @@ add_executable(runUserTests
     UserTest.cpp
 )
 
+add_executable(runSceneEditorTests
+    SceneEditorTest.cpp
+)
+
 target_link_libraries(runChoiceTests gmock gtest gtest_main)
 target_link_libraries(runChoiceTests simpleLibrary databaseLibrary) 
 
@@ -59,5 +63,9 @@ target_link_libraries(runSceneTests simpleLibrary databaseLibrary)
 
 target_link_libraries(runUserTests gmock gtest gtest_main)
 target_link_libraries(runUserTests simpleLibrary databaseLibrary) 
+
+
+target_link_libraries(runSceneEditorTests gmock gtest gtest_main)
+target_link_libraries(runSceneEditorTests simpleLibrary databaseLibrary) 
 
 
