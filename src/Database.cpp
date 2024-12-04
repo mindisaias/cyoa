@@ -5,9 +5,12 @@
 
 using namespace std;
 
-Database::Database(): DBEditor(DB), DBSelector(DB) {
+Database::Database(): DB(nullptr), DBEditor(nullptr), DBSelector(nullptr) {
 // Open database
     openDB();
+
+    DBEditor.DB = DB;
+    DBSelector.DB = DB;
 
 // Create tables if they don't already exist
     const char* sqlGamesTable =  "CREATE TABLE IF NOT EXISTS Games ("
