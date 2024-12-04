@@ -22,7 +22,7 @@ class GameCreator {
         void editScene();
 
         //void publish();
-        //void save();
+        void save();
         //void chooseGame();
         
     private:

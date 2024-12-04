@@ -1,9 +1,11 @@
 #include "../include/GameCreator.hpp"
+#include "Database.hpp"
 
 int main() {
 
-   // GameCreator g;
-   // g.start();
+   Database db;
+   GameCreator g(db);
+   g.start();
     // g.addScene();
 
     // cout << endl;
