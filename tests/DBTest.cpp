@@ -23,11 +23,11 @@ int main() {
 
     cout << endl;
     
-    myDB.DBEditor.deleteFromGames(1);
-
-    cout << endl;
     myDB.DBSelector.selectFromScenes();
 
+    cout << endl;
+
+    myDB.DBEditor.deleteFromGames(1);
     
 
     return 0;
