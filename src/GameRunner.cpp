@@ -63,7 +63,7 @@ void GameRunner::start() {
     //Game gets loaded into memory
     loadGame(gameID);
 
-    
+
     //Play game (makechoice)
     playGame(currGame);
     
@@ -83,8 +83,10 @@ void GameRunner::playGame(Game currentGame) {
         currentScene->display(cout); // print the scene
         cin >> userChoice; // get the option
         nextScene = currentScene->getResultScene(userChoice); // find the next scene
+        currentScene = currGame.gameScenes[nextScene];
         endReached = currentGame.gameScenes[nextScene]->choices.size() == 0; // reassign endReached
     }
+    currentScene->display(cout);
     cout << "Thank you for playing " << currentGame.title << ". To return to the main menu, press any key.\n";
     int buffer;
     cin >> buffer; 
