@@ -107,11 +107,11 @@ User GameManager::signin()  {
         if (cin.peek() == '\n') {
             cin.ignore();
         }
-        getline(cin, userName);
+        cin >> userName;
 
         //get password
         cout << "Enter your password: ";
-        getline(cin, pwd);
+        cin >> pwd;
 
 
         for (const auto user : users) {
