@@ -115,7 +115,6 @@ User GameManager::signin()  {
 
 
         for (const auto user : users) {
-            cout << user[1] << " " << user[2] << endl;
             if (user[1] == userName && user[2] == pwd) {
                 flag = false;
             }
