@@ -59,6 +59,27 @@ void GameRunner::start() {
 
     
     //Play game (makechoice)
+    playGame(currGame);
     
     //Quit game (quitgame)
+}
+
+void GameRunner::playGame(Game currentGame) {
+
+    // Initialize variables
+    Scene* currentScene = currentGame.first;
+    string nextScene = "";
+    int userChoice = -1;
+    bool endReached = false; 
+
+    // run the game while the end has not been reached
+    while(!endReached) {
+        currentScene->display(cout); // print the scene
+        cin >> userChoice; // get the option
+        nextScene = currentScene->getResultScene(userChoice); // find the next scene
+        endReached = currentGame.gameScenes[nextScene]->choices.size() == 0; // reassign endReached
+    }
+    cout << "Thank you for playing " << currentGame.title << ". To return to the main menu, press any key.\n";
+    int buffer;
+    cin >> buffer; 
 }
