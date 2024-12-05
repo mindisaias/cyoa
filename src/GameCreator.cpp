@@ -20,7 +20,7 @@ void GameCreator::printMenu() {
     cout << "Enter a value 1-5:\n";
     cout << "1. Add Scene\n";
     cout << "2. Edit Scene\n";
-    cout << "3. Remove Scene\n";
+    cout << "3. Save Game\n";
     cout << "4. Print Scene Names\n";
     cout << "5. Quit\n";
 }
