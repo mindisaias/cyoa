@@ -26,8 +26,21 @@ void GameCreator::printMenu() {
 }
 
 
-void GameCreator::start(){
-    //make sure to add game detail stuffs 
+void GameCreator::start(User currUser){
+    //make sure to add game detail stuffs
+    string title;
+    cout << "What will the title of your game be?" << endl;
+    cin.ignore();
+    getline(cin, title);
+
+    string description;
+    cout << "Give a brief description about your game." << endl;
+    getline(cin, description);
+
+
+    currGame.title = title;
+    currGame.description = description;
+    currGame.author = currUser.username;
     DB.DBEditor.insertToGames(currGame.title,currGame.author,currGame.description);
 
     int choice = 0;
