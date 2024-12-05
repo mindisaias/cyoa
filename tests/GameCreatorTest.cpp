@@ -5,7 +5,7 @@ int main() {
 
    Database db;
    GameCreator g(db);
-   g.start();
+   // g.start();
     // g.addScene();
 
     // cout << endl;

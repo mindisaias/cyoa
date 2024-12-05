@@ -2,6 +2,7 @@
 #define GAME_CREATOR_HPP
 
 #include "Game.hpp"
+#include "User.hpp"
 #include "Database.hpp"
 #include <map> 
 #include <limits>
@@ -12,7 +13,7 @@ class GameCreator {
     public:
         GameCreator(Database& db) : DB(db) {}
         //helpers
-        void start();
+        void start(User currUser);
         void printMenu();
         //functions for game
         void addScene();
@@ -28,6 +29,7 @@ class GameCreator {
     private:
         void addScene(const string & prompt, const string & name);
         Game currGame;
+        User currUser;
         Database DB;
 
 

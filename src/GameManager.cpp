@@ -214,7 +214,7 @@ void GameManager::run() {
             cout << "\033[2J\033[1;1H";
         }  
         else if(nextSceneName == CREATE_GAMES_NAME) {
-            GC.start();
+            GC.start(currUser);
             cout << "\033[2J\033[1;1H";
         }
         else if(nextSceneName == QUIT_GAME_NAME) {
