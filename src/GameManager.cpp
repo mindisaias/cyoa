@@ -159,7 +159,7 @@ void GameManager::loadScreens() {
     screens[MAIN_MENU_NAME] = new Scene();
     screens[MAIN_MENU_NAME]->setSceneName(MAIN_MENU_NAME);
     screens[MAIN_MENU_NAME]->editPrompt("What would you like to do?");
-    screens[MAIN_MENU_NAME]->addChoice(new Choice("Play a user created game", MAIN_MENU_NAME));
+    screens[MAIN_MENU_NAME]->addChoice(new Choice("Play a user created game", PLAY_GAMES_NAME));
     screens[MAIN_MENU_NAME]->addChoice(new Choice("Start/resume game editing", CREATE_GAMES_NAME));
     screens[MAIN_MENU_NAME]->addChoice(new Choice("Quit game", QUIT_GAME_NAME));
 
@@ -211,8 +211,8 @@ void GameManager::run() {
         nextSceneName = currentScene->getResultScene(userDecision);
 
         if(nextSceneName == PLAY_GAMES_NAME){
-            // run GR
-            // assign next scene name
+            GR.start();
+            cout << "\033[2J\033[1;1H";
         }  
         else if(nextSceneName == CREATE_GAMES_NAME) {
             GC.start();

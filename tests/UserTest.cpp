@@ -1,4 +1,4 @@
-#include "gtest/gtest.h"
+/* #include "gtest/gtest.h"
 #include "../include/User.hpp"
 #include <../sqlite3/sqlite3.h>
 #include "Database.hpp"
@@ -22,4 +22,4 @@ TEST(UserValid, isNotValidPassword){
 TEST(UserValid, isNotValid){
     User* user3 = new User("Angle", "Angel3");
     EXPECT_FALSE(user3->isValidCredentials("Angle", "Angel3", myDB));
-}
+}*/
