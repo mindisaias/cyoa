@@ -10,6 +10,7 @@ class GameRunner {
         GameRunner(Database& db) : DB(db) {}
         void makeChoice();
         void loadGame(int gameID);
+        void playGame(Game);
         void quitGame();
         void start();
 

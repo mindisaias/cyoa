@@ -62,3 +62,9 @@ void GameRunner::start() {
     
     //Quit game (quitgame)
 }
+
+void GameRunner::playGame(Game currentGame) {
+    Scene* currentScene = currentGame.first;
+    
+    
+}
