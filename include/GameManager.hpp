@@ -37,8 +37,8 @@ class GameManager {
         User signin() ; // returns the name of the user that was signed in
         User createAccount(); // returns the name of the
     public:
-        GameManager() : gameDatabase() , GC(gameDatabase) {}
-        GameManager(Database db) : gameDatabase(db), GC(db) {}
+        GameManager() : gameDatabase() , GC(gameDatabase), GR(gameDatabase) {}
+        GameManager(Database db) : gameDatabase(db), GC(db), GR(db) {}
         void run();
         ~GameManager();
 };
