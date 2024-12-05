@@ -16,7 +16,12 @@ void clearTerminal() {
 }
 
 void SceneEditor::printEditMenu() {
-    cout << "Current Scene: " << currScene.getSceneName() <<  "\n";
+    if(currScene == nullptr) {
+        cout << "Current Scene: No Scene"<<  "\n";
+    }
+    else {
+        cout << "Current Scene: " << currScene->getSceneName() <<  "\n";
+    }
     cout << "Enter a value 1-5:\n";
     cout << "1. Add Choice\n";
     cout << "2. Edit Choice\n";
@@ -44,13 +49,13 @@ void SceneEditor::changeScene() {
     cout << "Select Scene: ";
     int choice;
     cin >> choice;
-    currScene = *(scenes.at(choice - 1));
+    currScene = (scenes.at(choice - 1));
 }
 
 void SceneEditor::addChoice() {
     clearTerminal();
     cout << "Current Scene:\n";
-    currScene.display(cout);
+    currScene->display(cout);
 
     cout << "Enter Choice Text:\n";
     string text;
@@ -75,7 +80,7 @@ void SceneEditor::addChoice() {
     
     Choice * newChoice = new Choice(text,resultScene);
 
-    currScene.addChoice(newChoice);
+    currScene->addChoice(newChoice);
 
 
 }
@@ -86,17 +91,17 @@ void SceneEditor::start() {
         clearTerminal();
         printEditMenu();
         cin >> choice;
-        if(choice == 1 && (currScene.getSceneName() != "")) {
+        if(choice == 1 && (currScene->getSceneName() != "")) {
             addChoice();
         }
-        else if(choice == 2 && (currScene.getSceneName() != "")) {
+        else if(choice == 2 && (currScene->getSceneName() != "")) {
         }
-        else if(choice == 3 && (currScene.getSceneName() != "")) {
+        else if(choice == 3 && (currScene->getSceneName() != "")) {
             
         }
-        else if(choice == 4 && (currScene.getSceneName() != "")) {
+        else if(choice == 4 && (currScene->getSceneName() != "")) {
             clearTerminal();
-            currScene.display(cout);
+            currScene->display(cout);
             cout << "Press Enter to continue\n";
             wait();
         }

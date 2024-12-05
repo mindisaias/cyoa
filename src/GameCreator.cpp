@@ -27,6 +27,8 @@ void GameCreator::printMenu() {
 
 
 void GameCreator::start(){
+    //make sure to add game detail stuffs 
+    DB.DBEditor.insertToGames(currGame.title,currGame.author,currGame.description);
 
     int choice = 0;
     do{
@@ -102,9 +104,16 @@ void GameCreator::editScene() {
 
 void GameCreator::save() {
 
-    DB.DBEditor.insertToGames(currGame.title,currGame.author,currGame.description);
     auto games = DB.DBSelector.selectFromGames();
     int gameid;
+    for(const auto game : games) {
+        if(game.at(1) == currGame.title) {
+            gameid = stoi(game.at(0));
+        }
+    }
+    DB.DBEditor.deleteFromGames(gameid);
+    DB.DBEditor.insertToGames(currGame.title,currGame.author,currGame.description);
+    games = DB.DBSelector.selectFromGames();
     for(const auto game : games) {
         if(game.at(1) == currGame.title) {
             gameid = stoi(game.at(0));
@@ -113,7 +122,25 @@ void GameCreator::save() {
     for(const auto tuple : currGame.gameScenes) {
         DB.DBEditor.insertToScenes(gameid,tuple.second->prompt,tuple.first);
     }
-    // DB.DBEditor.insertToChoices()
+
+    auto scenes = DB.DBSelector.selectFromScenes(gameid);
+
+    int resultid = -1;
+    int i = 0; //curr scene row
+    for (const auto tuple : currGame.gameScenes) { //scene from gamescenes
+
+        for(const auto mychoice : tuple.second->choices) {  // choice from scene
+            for(const auto sceneRow : scenes) {
+                if(sceneRow.at(1) == mychoice->resultScene) {
+                    resultid = stoi(sceneRow.at(0));
+                    break;
+                }
+            }
+            DB.DBEditor.insertToChoices(stoi(scenes.at(i).at(0)),mychoice->text,resultid);
+        }
+        i++;
+    }
+    
     
 }
 
