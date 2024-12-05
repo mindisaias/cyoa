@@ -16,7 +16,6 @@ vector<vector<string>> DatabaseSelector::selectFromGames() {
         cout << "Error selecting: " << errmsg;
     }
 
-    sqlite3_exec(DB, query.c_str(), outputCallback, 0, &errmsg);
 
     return rows;
 }
