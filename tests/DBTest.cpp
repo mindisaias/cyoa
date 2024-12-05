@@ -69,6 +69,9 @@ int main() {
         cout << row[0] << " " << row[1] << " " << row[2] << " " << endl << endl;
     }
     
+    for (const auto row : rows) {
+        cout << row[0] << " " << row[1] << " " << row[2] << endl << endl;
+    }
 
     return 0;
 }

@@ -90,35 +90,46 @@ User GameManager::createAccount() { // MOCK FUNCTION
     // assign the values and return
     newUser.username = username;
     newUser.password = pwd;
+    gameDatabase.DBEditor.insertToUsers(newUser.username, newUser.password);
     return newUser;  
 }
 
-User GameManager::signin()  { // MOCK FUNCTION
+User GameManager::signin()  {
     User newUser;
-    bool isValid;
-    string userName;
-    string pwd;
+    bool flag = true;
+    string userName = "";
+    string pwd = "";
+    vector<vector<string>> users = gameDatabase.DBSelector.selectFromUsers();
     
-    // get the username
-    cout << "Enter your username: ";
-    cin.ignore();
-    getline(cin, userName);
-
-    //get password
-    cout << "Enter your password: ";
-    getline(cin, pwd);
-    
-    // while(/*!newUser.isValidCredentials(userName, pwd)*/) {
-        cout << "Invalid username or password" << endl;
+    do {
         // get the username
         cout << "Enter your username: ";
-        cin.ignore();
+        if (cin.peek() == '\n') {
+            cin.ignore();
+        }
         getline(cin, userName);
 
         //get password
         cout << "Enter your password: ";
         getline(cin, pwd);
-    // }
+
+
+        for (const auto user : users) {
+            cout << user[1] << " " << user[2] << endl;
+            if (user[1] == userName && user[2] == pwd) {
+                flag = false;
+            }
+            else if (user[1] == userName && user[2] != pwd) {
+                cout << "Invalid password" << endl;
+            }
+        }
+        if (flag == true) {
+            cout << "User not found, please try again" << endl << endl;
+            userName = "";
+            pwd = "";
+        }
+
+    } while (flag == true);
 
     // assign the values and return
     newUser.username = userName;
