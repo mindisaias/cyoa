@@ -14,7 +14,6 @@ class User {
         int id;
         User() {};
         User(string u, string p): username(u), password(p) {} 
-        bool isValidCredentials(string username, string password, Database myDB);
 };  
 
 

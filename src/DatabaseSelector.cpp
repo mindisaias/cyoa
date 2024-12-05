@@ -40,9 +40,7 @@ vector<vector<string>> DatabaseSelector::selectFromScenes(int gameID) {
     vector<vector<string>> rows;
     char* errmsg;
 
-    if (sqlite3_exec(DB, query.c_str(), dataCallback, &rows, &errmsg) != SQLITE_OK) {
-        cout << "Error selecting: " << errmsg << endl;
-    }
+    sqlite3_exec(DB, query.c_str(), dataCallback, &rows, &errmsg);
 
     return rows;
 
