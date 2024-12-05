@@ -42,7 +42,7 @@ class DatabaseSelector {
         vector<vector<string>> selectFromGames();
         vector<vector<string>> selectFromScenes(int gameID);
         vector<vector<string>> selectFromChoices(int sceneID);
-        void selectFromUsers();
+        vector<vector<string>> selectFromUsers();
 };
 
 #endif
