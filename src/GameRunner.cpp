@@ -9,10 +9,16 @@ void GameRunner::makeChoice() {
     choice.display(cout);
 }
 void GameRunner::loadGame(int gameID) {
+    
     auto scenes = DB.DBSelector.selectFromScenes(gameID);
     map<int, string> SIDtoName;
+    int count = 0;
     for (const auto sceneRow : scenes) {
         currScene = new Scene(sceneRow[3], sceneRow[1]);
+        if(count == 0) {
+            currGame.first = currScene;
+            count++;
+        }
         currGame.gameScenes[currScene->sceneName] = currScene;
         SIDtoName[stoi(sceneRow[0])] = currScene->sceneName;
     }

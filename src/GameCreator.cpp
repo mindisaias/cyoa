@@ -119,7 +119,11 @@ void GameCreator::save() {
             gameid = stoi(game.at(0));
         }
     }
+    DB.DBEditor.insertToScenes(gameid,currGame.first->prompt,currGame.first->getSceneName());
     for(const auto tuple : currGame.gameScenes) {
+        if(tuple.second == currGame.first) {
+            continue;
+        }
         DB.DBEditor.insertToScenes(gameid,tuple.second->prompt,tuple.first);
     }
 
