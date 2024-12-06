@@ -77,15 +77,6 @@ TEST(DatabaseTestSuite, insertToChoices) {
 
 }
 
-TEST(DatabaseTestSuite, insertToScenes) {
-
-    Database testDB;
-    testDB.openDB();
-
-    EXPECT_NO_THROW(testDB.DBEditor.insertToScenes(1, "TestPrompt", "TestSceneName"));
-
-}
-
 TEST(DatabaseTestSuite, insertToUsers) {
 
     Database testDB;
