@@ -56,8 +56,13 @@
  
  ## Screenshots
  > Screenshots of the input/output after running your application
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/1cea170d-7b67-4490-8762-7ca49b3b5ba0">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/74d7a449-c305-4207-83ca-66585765e6ac">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/83d00fab-08dd-47ad-a50d-65d6e405e0e9">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/48fc3a9e-13e5-48f4-b558-f9870230587f">
+
  ## Installation/Usage
- > Instructions on installing and running your application
+Type ./bin/choose-your-own-adventure
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ We created test cases in our test class for each function. It tested the functionality and whether it passed or failed. We made sure each test file had multiple test cases to check other potential errors.
  
