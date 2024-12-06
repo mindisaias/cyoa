@@ -6,77 +6,7 @@
 
 using namespace std;
 
-int main() {
-    Database myDB;
-    string myGame = "myGame";
-
-    cout << endl;
-
-    myDB.DBEditor.insertToGames("Willows Game", "Willow", "This is Willow's Game");
-    myDB.DBEditor.insertToGames("Angels Game", "Angel", "This is Angel's Game");
-    myDB.DBEditor.insertToGames("Lynvys Game", "Lynvy", "This is Lynvy's Game");    
-    myDB.DBEditor.insertToGames("Alex Game", "Alex", "This is Alex's Game");
-
-
-    myDB.DBEditor.insertToScenes(1, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
-    myDB.DBEditor.insertToScenes(1, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
-    myDB.DBEditor.insertToScenes(2, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
-    myDB.DBEditor.insertToScenes(2, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
-    myDB.DBEditor.insertToScenes(3, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
-    myDB.DBEditor.insertToScenes(3, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
-    myDB.DBEditor.insertToScenes(3, "What will you do? {Choice 1}, {Choice 2}", "Time to Decide");
-
-    myDB.DBEditor.insertToUsers("WillowThinking", "WillowsPassword");
-
-    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
-    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
-    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
-    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
-    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
-    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
-    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
-    myDB.DBEditor.insertToChoices(1, "This is your choice.", 1);
-
-    cout << endl;
-
-    vector<vector<string>> rows = myDB.DBSelector.selectFromGames();
-
-    cout << endl;
-
-    for (const auto row : rows) {
-        cout << row[0] << " " << row[1] << " " << row[2] << " " << row[3] << " " << row[4] << endl << endl;
-    }
-
-    cout << endl;
-
-    rows = myDB.DBSelector.selectFromScenes(1);
-
-    for (const auto row : rows) {
-        cout << row[0] << " " << row[1] << " " << row[2] << " " << row[3] << endl << endl;
-    }
-
-    cout << endl;
-
-    rows = myDB.DBSelector.selectFromChoices(1);
-
-    for (const auto row : rows) {
-        cout << row[0] << " " << row[1] << " " << row[2] << " " << row[3] << endl << endl;
-    }
-
-    rows = myDB.DBSelector.selectFromUsers();
-
-    for (const auto row: rows) {
-        cout << row[0] << " " << row[1] << " " << row[2] << " " << endl << endl;
-    }
-    
-    for (const auto row : rows) {
-        cout << row[0] << " " << row[1] << " " << row[2] << endl << endl;
-    }
-
-    return 0;
-}
-
-/*TEST(DatabaseTestSuite, openDBTest) {
+TEST(DatabaseTestSuite, openDBTest) {
 
     Database testDB;
 
@@ -84,20 +14,83 @@ int main() {
 
 }
 
-TEST(DatabaseTestSuite, deleteFromDBTest) {
+TEST(DatabaseTestSuite, selectFromScenes) {
 
     Database testDB;
     testDB.openDB();
 
-    EXPECT_NO_THROW(testDB.deleteFromDB());
+    EXPECT_NO_THROW(testDB.DBSelector.selectFromScenes(1));
 
 }
 
-TEST(DatabaseTestSuite, selectFromDBTest) {
+TEST(DatabaseTestSuite, selectFromGames) {
 
     Database testDB;
     testDB.openDB();
 
-    EXPECT_NO_THROW(testDB.selectFromDB());
+    EXPECT_NO_THROW(testDB.DBSelector.selectFromGames());
 
-}*/
+}
+
+TEST(DatabaseTestSuite, selectFromChoices) {
+
+    Database testDB;
+    testDB.openDB();
+
+    EXPECT_NO_THROW(testDB.DBSelector.selectFromChoices(1));
+
+}
+
+TEST(DatabaseTestSuite, selectFromUsers) {
+
+    Database testDB;
+    testDB.openDB();
+
+    EXPECT_NO_THROW(testDB.DBSelector.selectFromUsers());
+
+}
+
+TEST(DatabaseTestSuite, insertToGames) {
+
+    Database testDB;
+    testDB.openDB();
+
+    EXPECT_NO_THROW(testDB.DBEditor.insertToGames("GameName", "GameAuthor", "GameDescription"));
+
+}
+
+TEST(DatabaseTestSuite, insertToScenes) {
+
+    Database testDB;
+    testDB.openDB();
+
+    EXPECT_NO_THROW(testDB.DBEditor.insertToScenes(1, "TestPrompt", "TestSceneName"));
+
+}
+
+TEST(DatabaseTestSuite, insertToChoices) {
+
+    Database testDB;
+    testDB.openDB();
+
+    EXPECT_NO_THROW(testDB.DBEditor.insertToChoices(1, "ChoiceText", 2));
+
+}
+
+TEST(DatabaseTestSuite, insertToScenes) {
+
+    Database testDB;
+    testDB.openDB();
+
+    EXPECT_NO_THROW(testDB.DBEditor.insertToScenes(1, "TestPrompt", "TestSceneName"));
+
+}
+
+TEST(DatabaseTestSuite, insertToUsers) {
+
+    Database testDB;
+    testDB.openDB();
+
+    EXPECT_NO_THROW(testDB.DBEditor.insertToUsers("Username", "Password"));
+
+}
