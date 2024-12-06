@@ -47,22 +47,22 @@
 > We originally added a database class to abstract sqlite3's database, and after implementation realized that the class was becoming too big and doing too much. We followed SOLID's single responsibility principle again here by making 3 separate classes for each of the things we want our database to do. One class abstract's the database to allow it to exist in our program, and we have two other classes, a DatabaseEditor and a DatabaseSelector to allow for acting on the existing database through the database class. This allows for us to easier understand the implementation of each class and makes our code more readable, accessible, and editable.
  
  > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
+
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history.
->  * Each team member should also submit the Individual Contributions Form on Canvas for this final phase. In this form, you need to fill in the names of all team members, the percentage of work contributed by each member for the final phase, and a description of their contributions. Remember that each team member should submit the form individually.
  
  ## Screenshots
- > Screenshots of the input/output after running your application
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/1cea170d-7b67-4490-8762-7ca49b3b5ba0">
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/74d7a449-c305-4207-83ca-66585765e6ac">
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/83d00fab-08dd-47ad-a50d-65d6e405e0e9">
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/48fc3a9e-13e5-48f4-b558-f9870230587f">
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/04226f32-adb0-48fe-be0d-d5fb545eea72">
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/d80c2a34-bc4b-43f4-8ac2-302375b9c0f4">
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/1b8f8727-607e-4818-8200-ff90f54d4472">
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/1b74ac30-9112-4a70-bf13-b78df7b72918">
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/d17df6eb-066d-4cd3-a802-b858b17d2574">
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/248f71e7-ded7-47b8-9f35-3c52a172712c">
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/84455e3b-36f5-4d73-bdf0-ca8b9916ad3a">
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/f7c1eb1b-81df-4d54-860b-344b9005fa71">
 
  ## Installation/Usage
 Type ./bin/choose-your-own-adventure
