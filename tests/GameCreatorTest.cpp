@@ -1,20 +1,11 @@
+#include "gtest/gtest.h"
 #include "../include/GameCreator.hpp"
-#include "Database.hpp"
+#include <iostream>
 
-int main() {
+TEST(GCTestSuite, GCConstructor) {
 
-   Database db;
-   GameCreator g(db);
-   // g.start();
-    // g.addScene();
+   Database myDB;
 
-    // cout << endl;
-    // g.addScene();
-    // cout << endl;
-
-
-    // g.printSceneNames();
-
-   return 0;
+   EXPECT_NO_THROW(GameCreator GC(myDB));
 
 }
