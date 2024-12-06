@@ -51,9 +51,12 @@
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history.
  
  ## Screenshots
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/1cea170d-7b67-4490-8762-7ca49b3b5ba0">
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/74d7a449-c305-4207-83ca-66585765e6ac">
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/83d00fab-08dd-47ad-a50d-65d6e405e0e9">
+ this is the opening screen:
+><img width="200" alt="image" src="https://github.com/user-attachments/assets/1cea170d-7b67-4490-8762-7ca49b3b5ba0">
+>The input is 1:
+><img width="200" alt="image" src="https://github.com/user-attachments/assets/74d7a449-c305-4207-83ca-66585765e6ac">
+>
+><img width="200" alt="image" src="https://github.com/user-attachments/assets/83d00fab-08dd-47ad-a50d-65d6e405e0e9">
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/48fc3a9e-13e5-48f4-b558-f9870230587f">
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/04226f32-adb0-48fe-be0d-d5fb545eea72">
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/d80c2a34-bc4b-43f4-8ac2-302375b9c0f4">
@@ -65,8 +68,11 @@
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/f7c1eb1b-81df-4d54-860b-344b9005fa71">
 
  ## Installation/Usage
-Type ./bin/choose-your-own-adventure
-Type in a number to choose an option and press enter
+On first install:
+> 1. Type cmake .
+> 2. Type make
+> 3. Type ./bin/choose-your-own-adventure
+> 4. Type in a number to choose an option and press enter
  ## Testing
  We created test cases in our test class for each function. It tested the functionality and whether it passed or failed. We made sure each test file had multiple test cases to check other potential errors.
  
