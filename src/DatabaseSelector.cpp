@@ -18,6 +18,8 @@ vector<vector<string>> DatabaseSelector::selectFromGames() {
 
 
     return rows;
+
+    free(errmsg);
 }
 
 vector<vector<string>> DatabaseSelector::selectFromChoices(int sceneID) {
@@ -32,6 +34,8 @@ vector<vector<string>> DatabaseSelector::selectFromChoices(int sceneID) {
 
     return rows;
 
+    free(errmsg);
+
 }
 
 vector<vector<string>> DatabaseSelector::selectFromScenes(int gameID) {
@@ -42,6 +46,8 @@ vector<vector<string>> DatabaseSelector::selectFromScenes(int gameID) {
     sqlite3_exec(DB, query.c_str(), dataCallback, &rows, &errmsg);
 
     return rows;
+
+    free(errmsg);
 
 }
 
@@ -54,6 +60,8 @@ vector<vector<string>> DatabaseSelector::selectFromUsers() {
     if (sqlite3_exec(DB, query.c_str(), dataCallback, &rows, &errmsg) != SQLITE_OK) {
         cout << "Error selecting: " << errmsg << endl;
     }
+
+    free(errmsg);
     
     return rows;
 }
