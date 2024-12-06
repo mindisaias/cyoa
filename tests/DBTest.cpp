@@ -10,7 +10,6 @@ int main() {
     Database myDB;
     string myGame = "myGame";
 
-    cout << endl;
 
     myDB.DBEditor.insertToGames("Willows Game", "Willow", "This is Willow's Game");
     myDB.DBEditor.insertToGames("Angels Game", "Angel", "This is Angel's Game");
@@ -49,7 +48,7 @@ int main() {
 
     cout << endl;
 
-    rows = myDB.DBSelector.selectFromScenes(1);
+    rows = myDB.DBSelector.selectFromScenes(13);
 
     for (const auto row : rows) {
         cout << row[0] << " " << row[1] << " " << row[2] << " " << row[3] << endl << endl;
