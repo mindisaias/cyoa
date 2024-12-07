@@ -13,6 +13,11 @@ class Game {
         int gameID;
         map<string, Scene*> gameScenes; 
         Scene * first = nullptr;
+        ~Game() {
+            for(const auto scene : gameScenes) {
+                delete scene.second;
+            }
+        }
 
 };
 

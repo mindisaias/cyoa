@@ -25,6 +25,7 @@ class GameCreator {
         //void publish();
         void save();
         //void chooseGame();
+
         
     private:
         void addScene(const string & prompt, const string & name);
