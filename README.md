@@ -45,11 +45,7 @@
  ## SOLID Principles
  > We added a scene editor class to follow the SOLID single responsibility principle. We did this because the game creator class was handling to many features. The game creator class was responsible for adding scenes, creating scenes, creating games, changing games, and adding games. So we split these features into two different classes. One called GameCreator and the other SceneEditor, now the responsibilities are evenly distributed among the two classes. It helped us write better code because now each class can focus on a single feature and we can change each of the objects separately and avoid cluttering one single class.
 > We originally added a database class to abstract sqlite3's database, and after implementation realized that the class was becoming too big and doing too much. We followed SOLID's single responsibility principle again here by making 3 separate classes for each of the things we want our database to do. One class abstract's the database to allow it to exist in our program, and we have two other classes, a DatabaseEditor and a DatabaseSelector to allow for acting on the existing database through the database class. This allows for us to easier understand the implementation of each class and makes our code more readable, accessible, and editable.
- 
- > ## Final deliverable
 
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history.
- 
  ## Screenshots
  this is the opening screen:
 ><img width="200" alt="image" src="https://github.com/user-attachments/assets/1cea170d-7b67-4490-8762-7ca49b3b5ba0">
