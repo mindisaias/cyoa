@@ -37,7 +37,7 @@
  
 
 ## Class Diagram
-<img width="600" alt="image" src= "https://github.com/user-attachments/assets/f8949c70-2595-436a-b27c-313af296db25">
+<img width="600" alt="image" src= "https://github.com/user-attachments/assets/6a844092-d291-48b0-a28e-c2cb1c5b19e9">
 
 
 > This diagram illustrates the seven classes we will be using to implement our project. The program class will hold the objects of all the other classes and runs our entire program through the run function, everything happens inside of here. The user class exists for the user to sign in and access the rest of our program, such as game play and game creation. Playing a game is done through the GameRunner class, and game creation is done through the GameCreator class. For our game class, it has basic identifying features and the core element of the game class is the vector of scenes. Each scene is essentially a page of the story which can be accessed through the choices class. The identifying features of the game, the users, and the scenes are all stored in a database and are crossreferenced with a unique id.
