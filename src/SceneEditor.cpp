@@ -7,9 +7,6 @@ void wait(){
     cin.get();
 }
 void clearTerminal() {
-    // for (int i = 0; i < 100; i++) {
-    //     cout << '\n';
-    // }
 
     std::cout << "\033[2J\033[1;1H";
 }
@@ -93,10 +90,11 @@ void SceneEditor::start() {
         if(choice == 1 && (currScene->getSceneName() != "")) {
             addChoice();
         }
-        else if(choice == 2 && (currScene->getSceneName() != "")) {
+        else if(choice == 2 && (currScene->getSceneName() != "")) { // edit choice
+            editChoice();
         }
-        else if(choice == 3 && (currScene->getSceneName() != "")) {
-            
+        else if(choice == 3 && (currScene->getSceneName() != "")) { // edit scene prompt
+            editPrompt();
         }
         else if(choice == 4 && (currScene->getSceneName() != "")) {
             clearTerminal();
@@ -116,4 +114,58 @@ void SceneEditor::start() {
         }
     
     }while(true);
+}
+
+void SceneEditor::editChoice() {
+    if(currScene->choices.size() == 0) {
+        return;
+    }
+    cout << "Which choice would you like the edit?" << endl;
+    currScene->display(cout);
+    int input;
+    cin >> input;
+    // int i = 1;
+    // for(const auto & sceneName : currGame.gameScenes) {
+    //     cout << i << ". "<< sceneName.first << "\n";
+    //     i++;
+    // }
+    // cout << "Press Enter To Continue" << endl;
+
+    
+    if (input <= currScene->choices.size()) {
+        string newText = "dsfsdf";
+        string newResult = "sdfdsfs";
+
+        cout << "Enter new choice text: ";
+        cin.ignore();
+        getline(cin, newText);
+        cout << endl;
+
+        int i = 1;
+        for(const auto & sceneName : currGame.gameScenes) {
+            cout << i << ". "<< sceneName.first << "\n";
+            i++;
+        }
+        
+        cout << "Pick a result: ";
+        cin.ignore();
+        getline(cin, newResult);
+        cout << endl;        
+        currScene->choices.at(input - 1)->text = newText;
+        currScene->choices.at(input - 1)->resultScene = newResult;
+        
+    }    
+}
+
+void SceneEditor::editPrompt() {
+    cout << "What would you like to change the scene to? (Press enter to quit)" << endl;
+    string userInput;
+    cin.ignore();
+    getline(cin, userInput);
+    if(userInput[0] == '\n') {
+        return;
+    }
+    else {
+        currScene->editPrompt(userInput);
+    }
 }

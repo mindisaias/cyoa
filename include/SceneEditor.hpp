@@ -11,6 +11,8 @@ class SceneEditor {
         void printEditMenu();
         void changeScene();
         void addChoice();
+        void editChoice();
+        void editPrompt();
         Scene * currScene;
         Game & currGame;
     
