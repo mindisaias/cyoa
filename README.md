@@ -67,6 +67,9 @@
 >We are printing scene names:
 ><img width="200" alt="image" src="https://github.com/user-attachments/assets/1b8f8727-607e-4818-8200-ff90f54d4472">
 
+>This shows what games that have been created:
+><img width="200" alt="image" src="https://github.com/user-attachments/assets/48fc3a9e-13e5-48f4-b558-f9870230587f">
+
 >We are now saving the game:
 ><img width="200" alt="image" src="https://github.com/user-attachments/assets/d17df6eb-066d-4cd3-a802-b858b17d2574">
 
@@ -82,10 +85,8 @@
 >We are choosing a game to play:
 ><img width="200" alt="image" src="https://github.com/user-attachments/assets/f7c1eb1b-81df-4d54-860b-344b9005fa71">
 
->This shows what games that have been created:
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/48fc3a9e-13e5-48f4-b558-f9870230587f">
-
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/1b74ac30-9112-4a70-bf13-b78df7b72918">
+>This shows the scene in game 1:
+><img width="200" alt="image" src="https://github.com/user-attachments/assets/1b74ac30-9112-4a70-bf13-b78df7b72918">
 
  ## Installation/Usage
 On first install:
