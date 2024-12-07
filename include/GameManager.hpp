@@ -32,15 +32,15 @@ class GameManager {
         map<string, Scene*> screens; 
         Scene* currentScene;
 
-        // HELPER FUNCTIONS
-        void loadScreens(); // loads all of the default screens
-        User signin() ; // returns the name of the user that was signed in
-        User createAccount(); // returns the name of the
     public:
         GameManager() : gameDatabase() , GC(gameDatabase), GR(gameDatabase) {}
         GameManager(Database db) : gameDatabase(db), GC(db), GR(db) {}
         void run();
         ~GameManager();
+        // HELPER FUNCTIONS
+        void loadScreens(); // loads all of the default screens
+        User signin() ; // returns the name of the user that was signed in
+        User createAccount(); // returns the name of the
 };
 
 
