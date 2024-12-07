@@ -1,7 +1,6 @@
 #include "../include/SceneEditor.hpp"
 #include <iostream> 
 #include <limits>
-using namespace std;
 
 void wait(){
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
