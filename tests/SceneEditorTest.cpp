@@ -15,3 +15,16 @@ TEST(SceneEditorSuite, SceneEditorOverloadedConstructor) {
     EXPECT_NO_THROW(SceneEditor SE(testGame));
 
 }
+
+TEST(SceneEditorSuite, printEditMenu) {
+
+    Game testGame;
+    SceneEditor SE(testGame);
+    
+    EXPECT_NO_THROW(SE.printEditMenu());
+
+}
+
+TEST(SceneEditorSuite, changeScene) {
+    
+}
