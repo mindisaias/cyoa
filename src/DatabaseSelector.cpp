@@ -19,7 +19,6 @@ vector<vector<string>> DatabaseSelector::selectFromGames() {
 
     return rows;
 
-    free(errmsg);
 }
 
 vector<vector<string>> DatabaseSelector::selectFromChoices(int sceneID) {
@@ -34,7 +33,6 @@ vector<vector<string>> DatabaseSelector::selectFromChoices(int sceneID) {
 
     return rows;
 
-    free(errmsg);
 
 }
 
@@ -47,7 +45,6 @@ vector<vector<string>> DatabaseSelector::selectFromScenes(int gameID) {
 
     return rows;
 
-    free(errmsg);
 
 }
 
@@ -61,7 +58,6 @@ vector<vector<string>> DatabaseSelector::selectFromUsers() {
         cout << "Error selecting: " << errmsg << endl;
     }
 
-    free(errmsg);
     
     return rows;
 }
