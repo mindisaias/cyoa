@@ -43,6 +43,15 @@ TEST(GCTestSuite, addScene) {
 
 }
 
+// TEST(GCTestSuite, editScene) { Not currently implemented
+
+//    Database myDB;
+//    User currUser;
+//    GameCreator GC(myDB);
+
+//    EXPECT_NO_THROW(GC.editScene());
+// }
+
 TEST(GCTestSuite, start) {
 
    Database myDB;
