@@ -15,3 +15,30 @@ TEST(GMTestSuite, GMOverloadedConstructor) {
     EXPECT_NO_THROW(GameManager TestManager(myDB));
 
 }
+
+TEST(GMTestSuite, loadScreens) {
+
+    Database myDB;
+    GameManager TestManager(myDB);
+
+    EXPECT_NO_THROW(TestManager.loadScreens());
+
+}
+
+// TEST(GMTestSuite, signIn) { Loops for some reason
+
+//     Database gameDatabase;
+//     GameManager TestManager(gameDatabase);
+
+//     EXPECT_NO_THROW(TestManager.signin());
+
+// }
+
+TEST(GMTestSuite, createAccount) {
+
+    Database myDB;
+    GameManager TestManager(myDB);
+
+    EXPECT_NO_THROW(TestManager.createAccount());
+
+}
