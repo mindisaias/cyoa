@@ -20,7 +20,7 @@
  >  * Printed overview of story upon completion
  >
 ### Navigation Diagram
-> <img width="584" alt="image" src="https://github.com/user-attachments/assets/41fec473-e33d-4b86-a791-051161e73727">
+<img width="583" alt="image" src="https://github.com/user-attachments/assets/e339dd9b-dcc2-4e4f-a740-de71b8d99b0f" />
 
 > Our navigation diagram shows all possible paths/routes the user can take through the program.
 
