@@ -25,7 +25,8 @@
 > Our navigation diagram shows all possible paths/routes the user can take through the program.
 
 ### Screen Layouts
-<img width="682" alt="image" src="https://github.com/user-attachments/assets/d752b103-c3ff-44cf-8182-a16cb348c12d">
+<img width="683" alt="image" src="https://github.com/user-attachments/assets/213092d8-819e-45ab-9dfa-8af27e89a1d0" />
+
 
 > Create Account: This allows the user to either sign in or create an account which allows them to access our game creation feature and game play feature.
 > Run Program: This layout shows the very first display the user will get upon opening the program.
