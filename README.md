@@ -38,7 +38,8 @@
  
 
 ## Class Diagram
-<img width="600" alt="image" src= "https://github.com/user-attachments/assets/6a844092-d291-48b0-a28e-c2cb1c5b19e9">
+<img width="598" alt="image" src="https://github.com/user-attachments/assets/d8d99455-f925-4e40-aeee-0060c0d91f10" />
+
 
 
 > This diagram illustrates the seven classes we will be using to implement our project. The program class will hold the objects of all the other classes and runs our entire program through the run function, everything happens inside of here. The user class exists for the user to sign in and access the rest of our program, such as game play and game creation. Playing a game is done through the GameRunner class, and game creation is done through the GameCreator class. For our game class, it has basic identifying features and the core element of the game class is the vector of scenes. Each scene is essentially a page of the story which can be accessed through the choices class. The identifying features of the game, the users, and the scenes are all stored in a database and are crossreferenced with a unique id.
@@ -49,41 +50,49 @@
 
  ## Screenshots
  this is the opening screen:
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/1cea170d-7b67-4490-8762-7ca49b3b5ba0">
+><img width="306" alt="image" src="https://github.com/user-attachments/assets/4ef7f36f-5db7-46a0-940c-ea0e4e7e23b1" />
+
 
 >The account "ngel" is created:
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/74d7a449-c305-4207-83ca-66585765e6ac">
+><img width="309" alt="image" src="https://github.com/user-attachments/assets/df5ac8f2-1941-4036-abd7-4141dd7635be" />
 >
 
 >We type in 1 to add a scene:
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/04226f32-adb0-48fe-be0d-d5fb545eea72">
+><img width="307" alt="image" src="https://github.com/user-attachments/assets/c0075d9a-4f50-428a-be8c-e4c84547f177" />
+
 
 >We are adding a scene called "We went to the pet shelter":
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/d80c2a34-bc4b-43f4-8ac2-302375b9c0f4">
+><img width="307" alt="image" src="https://github.com/user-attachments/assets/959f2b54-2c08-4806-bd51-f9485adb87f1" />
+
 
 >We are printing scene names:
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/1b8f8727-607e-4818-8200-ff90f54d4472">
+><img width="306" alt="image" src="https://github.com/user-attachments/assets/cf1ae6c9-28ba-4979-984b-5b19d2bd0b2b" />
+
 
 >This shows what games that have been created:
 ><img width="200" alt="image" src="https://github.com/user-attachments/assets/48fc3a9e-13e5-48f4-b558-f9870230587f">
 
 >We are now saving the game:
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/d17df6eb-066d-4cd3-a802-b858b17d2574">
+><img width="270" alt="image" src="https://github.com/user-attachments/assets/c45311aa-2358-4774-bae2-0112ed16c0a6" />
+
 
 >We are quitting the game:
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/248f71e7-ded7-47b8-9f35-3c52a172712c">
+><img width="275" alt="image" src="https://github.com/user-attachments/assets/29f90b30-068c-4c76-9485-1371e5707ce3" />
+
 
 >This now takes us to the start screen:
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/84455e3b-36f5-4d73-bdf0-ca8b9916ad3a">
+><img width="269" alt="image" src="https://github.com/user-attachments/assets/c1f0429e-c9db-43ee-a91b-5049d67681d1" />
+
 
 >We are selecting to play a user created game:
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/83d00fab-08dd-47ad-a50d-65d6e405e0e9">
+><img width="273" alt="image" src="https://github.com/user-attachments/assets/ad1f97b7-bdfe-42c1-b28c-df9d37ef83a5" />
+
 
 >We are choosing a game to play:
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/f7c1eb1b-81df-4d54-860b-344b9005fa71">
+><img width="272" alt="image" src="https://github.com/user-attachments/assets/c54d33c0-f1a9-4bc4-ba29-dd3383ce4822" />
 
 >This shows the scene in game 1:
-><img width="200" alt="image" src="https://github.com/user-attachments/assets/1b74ac30-9112-4a70-bf13-b78df7b72918">
+><img width="270" alt="image" src="https://github.com/user-attachments/assets/8ae4e460-01aa-4f4b-8c2a-d60cf34d0edc" />
 
  ## Installation/Usage
 On first install:
